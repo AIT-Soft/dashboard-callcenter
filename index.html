@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Danh sách màn hình – Dashboard Call Center</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua điều hướng, tới nội dung chính</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="index.html">Call Center (mẫu)</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mở hoặc đóng menu">
+    <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">Menu</label>
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <ul>
+        <li><a href="index.html" aria-current="page">Danh sách màn hình</a></li>
+        <li><a href="softphone.html">Softphone</a></li>
+        <li><a href="components.html">Thành phần</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" class="page">
+  <div class="page-header"><h1>Bộ mockup Dashboard Call Center</h1></div>
+  <p>Mở trực tiếp các tệp .html trong trình duyệt (file://). Dữ liệu là dữ liệu mẫu bịa. Đổi sáng/tối theo cài đặt hệ điều hành. Kiểm bằng bàn phím: Tab, Enter; liên kết bỏ qua điều hướng hiện khi Tab lần đầu.</p>
+  <section aria-labelledby="h-done">
+    <h2 id="h-done">Màn hình đã có</h2>
+    <ul class="screen-list">
+      <li><a href="dashboard.html">Dashboard KPI và biểu đồ</a><p class="muted">4 thẻ KPI có sparkline, xu hướng, donut, heatmap, gauge SLA, phễu, cột và xếp hạng nhân viên.</p></li>
+      <li><a href="dashboard-states.html">Dashboard – đang tải, rỗng, lỗi</a><p class="muted">Ba bản trạng thái: <a href="dashboard-states.html#dang-tai">đang tải</a>, <a href="dashboard-states.html#rong">rỗng</a>, <a href="dashboard-states.html#loi">lỗi</a>.</p></li>
+      <li><a href="components.html">Thư viện thành phần</a><p class="muted">Thẻ chỉ số, nút, thẻ trạng thái, bộ lọc, bảng, thông báo, rỗng/đang tải.</p></li>
+      <li><a href="charts.html">Thư viện biểu đồ SVG (1/2 và 2/2)</a><p class="muted">Đường, vùng chồng, cột nhóm/chồng, cột ngang, donut/pie, so sánh kỳ trước, gauge/bullet SLA, heatmap, phễu, histogram, sparkline, radar, thanh tiến độ mục tiêu, cột + đường; mỗi biểu đồ có bảng dữ liệu thay thế.<code>design-chart-customization.md</code>; công thức, token, ví dụ số cho 16 mục).</p></li>
+      <li><a href="calls.html">Cuộc gọi – bảng và bộ lọc</a><p class="muted">Bảng, sắp xếp, phân trang, tìm kiếm, 3 bộ lọc, chip.</p></li>
+      <li><a href="calls-states.html">Cuộc gọi – đang tải, rỗng, không tìm thấy, lỗi, lỗi ngày</a><p class="muted">Các bản: <a href="calls-states.html#dang-tai">đang tải</a>, <a href="calls-states.html#rong">rỗng</a>, <a href="calls-states.html#loi">lỗi tải</a>, <a href="calls-states.html#loi-bo-loc">lỗi bộ lọc</a>.</p></li>
+      <li><a href="customers.html">Khách hàng – vai Nhân viên (số che)</a><p class="muted">20 khách, nút Gọi, hộp xác nhận, nút xám khi ngoài phạm vi. Bản vai Quản lý: <a href="customers-manager.html">customers-manager.html</a>.</p></li>
+      <li><a href="softphone.html">Softphone – 9 trạng thái và ghi chú sau cuộc gọi</a><p class="muted">Sẵn sàng, đang kết nối, đổ chuông, đang nói, giữ máy, kết thúc, nhỡ, lỗi micro, lỗi tổng đài; form ghi chú (bình thường và lỗi kiểm tra).</p></li>
+      <li><a href="customer-detail.html">Chi tiết khách (KH013) – vai Nhân viên</a><p class="muted">Nút gọi nổi bật, lịch sử cuộc gọi của mình, bản rỗng/đang tải/lỗi. Bản vai Quản lý: <a href="customer-detail-manager.html">customer-detail-manager.html</a> (6 cuộc, 3 trạng thái).</p></li>
+    </ul>
+    <p class="muted">Lối tắt: <a href="charts.html">Thư viện biểu đồ</a></p>
+  </section>
+  <section aria-labelledby="h-docs" class="u-mt-5">
+    <h2 id="h-docs">Tài liệu thiết kế liên quan</h2>
+    <ul>
+      <li><code>design-system.md</code> – token, thành phần dùng chung</li>
+      <li><code>design-dashboard.md</code> và <code>design-dashboard-v2.md</code> – dashboard</li>
+      <li><code>design-table-filters.md</code> – bảng và bộ lọc</li>
+      <li><code>design-call-entry.md</code> và <code>design-softphone.md</code> – gọi và softphone</li>
+      <li><code>design-chart-customization.md</code> – tùy biến biểu đồ</li>
+      <li><code>design-visual-refresh.md</code> và <code>design-ux-improvements.md</code> – cải tiến UX/UI, truy cập</li>
+      <li><code>design-api-contract.md</code> và <code>design-telephony-integration.md</code> – đề xuất API, tích hợp tổng đài (chỉ tài liệu)</li>
+    </ul>
+    <p class="muted">Các tệp .md trên nằm ngoài gói mockup; xem trong kho tài liệu thiết kế của dự án.</p>
+  </section>
+  <section aria-labelledby="h-guide" class="u-mt-5">
+    <h2 id="h-guide">Hướng dẫn xem</h2>
+    <p>Đây là mockup tĩnh với dữ liệu mẫu bịa, không gọi API, không cần máy chủ, không dùng CDN hay thư viện ngoài. Xem đầy đủ trong <a href="HUONG-DAN.md">HUONG-DAN.md</a>.</p>
+  </section>
+</main>
+<footer class="site-footer">Mockup tĩnh — không phải mã sản phẩm.</footer>
+<script src="assets/analytics.js" defer></script>
+</body>
+</html>

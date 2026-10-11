@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuộc gọi – Call Center</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.toolbar{display:grid;gap:var(--sp-3);grid-template-columns:1fr;align-items:end}
+.applied{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-2);margin-top:var(--sp-3)}
+.applied .chips{margin:0}
+.result-count{font-weight:600;margin:var(--sp-3) 0 var(--sp-2)}
+.pagination ul{display:flex;flex-wrap:wrap;gap:var(--sp-1);list-style:none;margin:0;padding:0}
+.pagination .btn[aria-current="page"]{font-weight:700;text-decoration:underline}
+.pagination .btn[disabled]{opacity:.5;cursor:not-allowed}
+.pg-size{display:flex;align-items:center;gap:var(--sp-2)}
+.pg-size select{width:auto}
+.sort-ind{font-size:var(--fs-xs)}
+@media (min-width:768px){.toolbar{grid-template-columns:repeat(3,1fr)}.toolbar .span-all{grid-column:1/-1}}
+@media (min-width:1280px){.toolbar{grid-template-columns:repeat(3,1fr) 2fr}.toolbar .span-all{grid-column:auto}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua điều hướng, tới nội dung chính</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="index.html">Call Center (mẫu)</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mở hoặc đóng menu">
+    <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">Menu</label>
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="calls.html" aria-current="page">Cuộc gọi</a></li>
+        <li><a href="customers.html">Khách hàng</a></li>
+        <li><a href="softphone.html">Softphone</a></li>
+        <li><a href="components.html">Thành phần</a></li>
+      </ul>
+    </nav>
+    <span class="role-badge">Đang xem với vai: Giám sát</span>
+  </div>
+</header>
+
+<main id="main" class="page">
+  <p class="breadcrumb"><a href="index.html">Danh sách màn hình</a> / Cuộc gọi</p>
+  <div class="page-header">
+    <h1>Danh sách cuộc gọi</h1>
+    <button type="button" class="btn btn-secondary" aria-describedby="export-note">Xuất CSV</button>
+  </div>
+  <p class="muted" id="export-note">Dữ liệu mẫu bịa (bộ dữ liệu chung). Nút “Xuất CSV”, sắp xếp, lọc và phân trang chỉ minh họa giao diện, không hoạt động.
+    Xem các bản: <a href="calls-states.html#dang-tai">đang tải</a>, <a href="calls-states.html#rong">rỗng</a>, <a href="calls-states.html#khong-tim-thay">không tìm thấy</a>, <a href="calls-states.html#loi">lỗi</a>.</p>
+
+  <section class="card" aria-labelledby="h-filter">
+    <h2 id="h-filter" class="sr-only">Bộ lọc và tìm kiếm</h2>
+    <form class="toolbar" action="#" onsubmit="return false">
+      <div class="field">
+        <label for="f-range">Khoảng ngày</label>
+        <select id="f-range">
+          <option>7 ngày (04/10–10/10/2026)</option><option>Hôm nay (10/10/2026)</option><option>30 ngày</option><option>Tùy chọn (từ–đến)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-agent">Nhân viên</label>
+        <select id="f-agent">
+          <option>Tất cả nhân viên (8)</option>
+          <option>NV01 Nguyễn Thị Lan</option><option>NV02 Võ Quốc Bảo</option><option>NV03 Đặng Ngọc Mai</option><option>NV04 Hoàng Văn Khoa</option>
+          <option>NV05 Bùi Thanh Tâm</option><option>NV06 Ngô Gia Huy</option><option>NV07 Đỗ Phương Linh</option><option>NV08 Vũ Anh Tuấn</option>
+        </select>
+      </div>
+      <fieldset class="field">
+        <legend>Trạng thái (chọn nhiều)</legend>
+        <label class="check"><input type="checkbox" checked> Nhỡ</label>
+        <label class="check"><input type="checkbox" checked> Không trả lời</label>
+        <label class="check"><input type="checkbox"> Đã nghe máy</label>
+        <label class="check"><input type="checkbox"> Máy bận</label>
+        <label class="check"><input type="checkbox"> Lỗi kết nối</label>
+      </fieldset>
+      <div class="field">
+        <label for="f-search">Tìm theo tên khách hoặc mã cuộc gọi</label>
+        <input type="search" id="f-search" placeholder="Ví dụ: CL0049 hoặc Sao Mai" autocomplete="off">
+      </div>
+      <div class="span-all btn-group">
+        <button type="submit" class="btn">Áp dụng</button>
+      </div>
+    </form>
+
+    <div class="applied" role="group" aria-label="Bộ lọc đang áp dụng">
+      <strong>Đang lọc:</strong>
+      <ul class="chips">
+        <li class="chip">Ngày: 04/10–10/10/2026 (mặc định)</li>
+        <li class="chip">Trạng thái: Nhỡ <button type="button" aria-label="Bỏ lọc trạng thái Nhỡ">✕</button></li>
+        <li class="chip">Trạng thái: Không trả lời <button type="button" aria-label="Bỏ lọc trạng thái Không trả lời">✕</button></li>
+      </ul>
+      <button type="button" class="btn btn-ghost">Xóa tất cả bộ lọc</button>
+    </div>
+  </section>
+
+  <p class="result-count" role="status" aria-live="polite">16 cuộc gọi (8 Nhỡ + 8 Không trả lời) · hiển thị 1–10</p>
+
+  <div class="table-wrap" role="region" aria-labelledby="cap-calls" tabindex="0">
+    <table class="data">
+      <caption id="cap-calls">Cuộc gọi 04–10/10/2026, sắp theo Thời điểm giảm dần. Vuốt ngang để xem đủ cột trên điện thoại.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Mã</th>
+          <th scope="col" aria-sort="descending"><button type="button" class="sort">Thời điểm <span class="sort-ind" aria-hidden="true">▼</span><span class="sr-only">(đang sắp giảm dần)</span></button></th>
+          <th scope="col">Hướng</th>
+          <th scope="col">Nhân viên</th>
+          <th scope="col">Khách hàng</th>
+          <th scope="col" aria-sort="none"><button type="button" class="sort">Trạng thái <span class="sort-ind" aria-hidden="true">↕</span><span class="sr-only">(chưa sắp xếp, bấm để sắp)</span></button></th>
+          <th scope="col" aria-sort="none"><button type="button" class="sort">Thời lượng <span class="sort-ind" aria-hidden="true">↕</span><span class="sr-only">(chưa sắp xếp, bấm để sắp)</span></button></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row" class="mono">CL0049</th><td>09/10/2026 15:30</td><td>Gọi vào</td><td>Đặng Ngọc Mai</td><td>Dương Văn Sơn</td><td><span class="badge badge-no_answer">◔ Không trả lời</span></td><td class="num">0:00</td></tr>
+        <tr><th scope="row" class="mono">CL0047</th><td>09/10/2026 14:27</td><td>Gọi vào</td><td>Nguyễn Thị Lan</td><td>Công ty TNHH An Phát</td><td><span class="badge badge-missed">✕ Nhỡ</span></td><td class="num">0:00</td></tr>
+        <tr><th scope="row" class="mono">CL0043</th><td>09/10/2026 09:38</td><td>Gọi vào</td><td>Bùi Thanh Tâm</td><td>Hoàng Gia Bảo</td><td><span class="badge badge-no_answer">◔ Không trả lời</span></td><td class="num">0:00</td></tr>
+        <tr><th scope="row" class="mono">CL0041</th><td>08/10/2026 14:45</td><td>Gọi vào</td><td>Bùi Thanh Tâm</td><td>Phạm Quốc Cường</td><td><span class="badge badge-missed">✕ Nhỡ</span></td><td class="num">0:00</td></tr>
+        <tr><th scope="row" class="mono">CL0040</th><td>08/10/2026 14:42</td><td>Gọi ra</td><td>Vũ Anh Tuấn</td><td>Tạ Quang Phúc</td><td><span class="badge badge-no_answer">◔ Không trả lời</span></td><td class="num">0:00</td></tr>
+        <tr><th scope="row" class="mono">CL0039</th><td>08/10/2026 14:42</td><td>Gọi vào</td><td>Nguyễn Thị Lan</td><td>Phan Thị Ngân</td><td><span class="badge badge-missed">✕ Nhỡ</span></td><td class="num">0:00</td></tr>
+        <tr><th scope="row" class="mono">CL0038</th><td>08/10/2026 10:51</td><td>Gọi ra</td><td>Nguyễn Thị Lan</td><td>Đinh Thị Hoa</td><td><span class="badge badge-no_answer">◔ Không trả lời</span></td><td class="num">0:00</td></tr>
+        <tr><th scope="row" class="mono">CL0025</th><td>07/10/2026 08:09</td><td>Gọi vào</td><td>Bùi Thanh Tâm</td><td>Phạm Quốc Cường</td><td><span class="badge badge-missed">✕ Nhỡ</span></td><td class="num">0:00</td></tr>
+        <tr><th scope="row" class="mono">CL0024</th><td>06/10/2026 16:15</td><td>Gọi ra</td><td>Ngô Gia Huy</td><td>Trịnh Công Lâm</td><td><span class="badge badge-no_answer">◔ Không trả lời</span></td><td class="num">0:00</td></tr>
+        <tr><th scope="row" class="mono">CL0020</th><td>06/10/2026 10:38</td><td>Gọi vào</td><td>Võ Quốc Bảo</td><td>Công ty CP Thành Đạt</td><td><span class="badge badge-missed">✕ Nhỡ</span></td><td class="num">0:00</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <nav class="pagination" aria-label="Phân trang danh sách cuộc gọi">
+    <p class="u-m0">1–10 / 16</p>
+    <ul>
+      <li><button type="button" class="btn btn-secondary" disabled aria-disabled="true">Trước</button></li>
+      <li><a class="btn" href="#" aria-current="page" aria-label="Trang 1, trang hiện tại">1</a></li>
+      <li><a class="btn btn-secondary" href="#" aria-label="Trang 2">2</a></li>
+      <li><button type="button" class="btn btn-secondary">Sau</button></li>
+    </ul>
+    <div class="pg-size"><label for="pg-size">Dòng mỗi trang</label>
+      <select id="pg-size"><option selected>10</option><option>25</option><option>50</option></select></div>
+  </nav>
+</main>
+<footer class="site-footer">Mockup tĩnh, dữ liệu mẫu bịa — không phải sản phẩm thật.</footer>
+<script src="assets/analytics.js" defer></script>
+</body>
+</html>

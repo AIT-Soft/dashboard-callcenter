@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard – các trạng thái</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua điều hướng, tới nội dung chính</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="index.html">Call Center (mẫu)</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mở hoặc đóng menu">
+    <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">Menu</label>
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <ul>
+        <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+        <li><a href="calls.html">Cuộc gọi</a></li>
+        <li><span class="nav-soon">Khách hàng (chưa có mockup)</span></li>
+        <li><a href="softphone.html">Softphone</a></li>
+        <li><a href="components.html">Thành phần</a></li>
+        <li><a href="charts.html">Biểu đồ</a></li>
+      </ul>
+    </nav>
+    <span class="role-badge">Đang xem với vai: Quản lý</span>
+  </div>
+</header>
+
+<main id="main" class="page">
+  <p class="breadcrumb"><a href="index.html">Danh sách màn hình</a> / <a href="dashboard.html">Dashboard</a> / Các trạng thái</p>
+  <div class="page-header"><h1>Dashboard – đang tải, rỗng, lỗi</h1></div>
+  <p class="muted">Minh họa dữ liệu mẫu.</p>
+  <ul class="state-nav" aria-label="Chuyển tới trạng thái">
+    <li><a class="btn btn-secondary" href="#dang-tai">Đang tải</a></li>
+    <li><a class="btn btn-secondary" href="#rong">Rỗng</a></li>
+    <li><a class="btn btn-secondary" href="#loi">Lỗi</a></li>
+    <li><a class="btn btn-ghost" href="dashboard.html">Bản đầy đủ dữ liệu</a></li>
+  </ul>
+
+  <section id="dang-tai" class="card u-mb-5" aria-labelledby="h-load">
+    <h2 id="h-load">1. Đang tải</h2>
+    <p class="muted">Khung xương giữ đúng bố cục để trang không nhảy khi dữ liệu về. Thông báo "Đang tải dữ liệu…" cho trình đọc màn hình.</p>
+    <div role="status" aria-busy="true" aria-live="polite">
+      <p class="sr-only">Đang tải dữ liệu dashboard…</p>
+      <div class="grid grid-4" aria-hidden="true">
+        <div class="card sk-kpi"><div class="skeleton u-sk-a"></div><div class="skeleton u-sk-b"></div><div class="skeleton u-sk-c"></div></div>
+        <div class="card sk-kpi"><div class="skeleton u-sk-a"></div><div class="skeleton u-sk-b"></div><div class="skeleton u-sk-c"></div></div>
+        <div class="card sk-kpi"><div class="skeleton u-sk-a"></div><div class="skeleton u-sk-b"></div><div class="skeleton u-sk-c"></div></div>
+        <div class="card sk-kpi"><div class="skeleton u-sk-a"></div><div class="skeleton u-sk-b"></div><div class="skeleton u-sk-c"></div></div>
+      </div>
+      <div class="grid grid-main u-mt-4" aria-hidden="true">
+        <div class="card"><div class="skeleton u-sk-t"></div><div class="skeleton u-h-220"></div></div>
+        <div class="card"><div class="skeleton u-sk-t50"></div><div class="skeleton u-sk-donut"></div></div>
+      </div>
+      <div class="card u-mt-4" aria-hidden="true">
+        <div class="skeleton u-sk-t"></div>
+        <div class="skeleton u-h-200"></div>
+      </div>
+      <div class="grid grid-2 u-mt-4" aria-hidden="true">
+        <div class="card"><div class="skeleton u-sk-t"></div><div class="skeleton u-sk-gauge"></div></div>
+        <div class="card"><div class="skeleton u-sk-t"></div><div class="skeleton u-sk-r"></div><div class="skeleton u-sk-r85"></div><div class="skeleton u-sk-r60"></div></div>
+      </div>
+      <div class="card u-mt-4" aria-hidden="true">
+        <div class="skeleton u-sk-t30"></div>
+        <div class="skeleton u-sk-r"></div><div class="skeleton u-sk-r"></div><div class="skeleton u-h-24"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rong" class="card u-mb-5" aria-labelledby="h-empty">
+    <h2 id="h-empty">2. Rỗng (kỳ không có cuộc gọi)</h2>
+    <div class="grid grid-4" aria-label="Chỉ số kỳ không có dữ liệu">
+      <article class="card kpi"><h3 class="kpi-label">Tổng cuộc gọi</h3><p class="kpi-value">0</p></article>
+      <article class="card kpi"><h3 class="kpi-label">Tỷ lệ nghe máy</h3><p class="kpi-value">—</p></article>
+      <article class="card kpi"><h3 class="kpi-label">Thời lượng trung bình</h3><p class="kpi-value">—</p></article>
+      <article class="card kpi"><h3 class="kpi-label">Cuộc gọi nhỡ</h3><p class="kpi-value">0</p></article>
+    </div>
+    <p class="muted">Các nhóm biểu đồ (xu hướng, cơ cấu, heatmap, SLA, phễu, nhân viên) được thay bằng một thông báo rỗng duy nhất; số KPI hiện 0 hoặc “—”, không vẽ sparkline.</p>
+    <div class="empty" role="status">
+      <h3>Chưa có cuộc gọi trong kỳ này</h3>
+      <p>Khoảng ngày đã chọn (ví dụ 01/09–07/09/2026, mẫu) không có cuộc gọi nào. Thử chọn kỳ khác.</p>
+      <div class="btn-group u-jc-center">
+        <a class="btn" href="dashboard.html">Xem 7 ngày gần nhất</a>
+        <button class="btn btn-secondary" type="button">Chọn khoảng ngày khác</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="loi" class="card" aria-labelledby="h-err">
+    <h2 id="h-err">3. Lỗi tải dữ liệu</h2>
+    <div class="alert alert-error" role="alert">
+      <div>
+        <p><strong>Không tải được dữ liệu dashboard</strong>Mất kết nối tới máy chủ (mã lỗi mẫu: NET-503). Dữ liệu chưa được thay đổi.</p>
+        <div class="alert-actions btn-group">
+          <button class="btn btn-secondary" type="button">Thử lại</button>
+          <a class="btn btn-ghost" href="dashboard.html">Quay lại bản đầy đủ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">Mockup tĩnh, dữ liệu mẫu bịa — không phải sản phẩm thật.</footer>
+<script src="assets/analytics.js" defer></script>
+</body>
+</html>

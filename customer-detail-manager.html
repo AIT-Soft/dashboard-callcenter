@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chi tiết khách hàng (vai Quản lý) – Call Center</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua điều hướng, tới nội dung chính</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="index.html">Call Center (mẫu)</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mở hoặc đóng menu">
+    <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">Menu</label>
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="calls.html">Cuộc gọi</a></li>
+        <li><a href="customers.html" aria-current="page">Khách hàng</a></li>
+        <li><a href="softphone.html">Softphone</a></li>
+        <li><a href="components.html">Thành phần</a></li>
+      </ul>
+    </nav>
+    <span class="role-badge">Đang xem với vai: Quản lý (NV00 Trần Minh Quân)</span>
+  </div>
+</header>
+
+<main id="main" class="page">
+  <p class="breadcrumb"><a href="index.html">Danh sách màn hình</a> / <a href="customers-manager.html">Khách hàng (vai Quản lý)</a> / Công ty CP Thành Đạt</p>
+  <div class="page-header">
+    <h1>Công ty CP Thành Đạt</h1>
+    <div class="btn-group">
+      <button type="button" class="btn btn-call btn-call-lg" data-call data-name="Công ty CP Thành Đạt" data-phone="0901 000 0013" aria-label="Gọi Công ty CP Thành Đạt"><span aria-hidden="true">☎</span> Gọi khách</button>
+      <a class="btn btn-secondary" href="customer-detail.html">Xem bản vai Nhân viên</a>
+    </div>
+  </div>
+  <p class="muted">Dữ liệu mẫu bịa (bộ dữ liệu chung). Bản vai Quản lý: số đầy đủ, lịch sử toàn bộ cuộc gọi của khách (6 cuộc, 3 trạng thái).</p>
+
+  <div id="call-status" class="alert alert-info" role="status" hidden></div>
+
+  <section class="card" aria-labelledby="h-info">
+    <h2 id="h-info">Thông tin khách</h2>
+    <dl class="kv">
+      <div><dt>Mã khách</dt><dd class="mono">KH013</dd></div>
+      <div><dt>Số điện thoại (đầy đủ)</dt><dd class="phone">0901 000 0013</dd></div>
+      <div><dt>Hạng</dt><dd><span class="badge badge-info">Thường xuyên</span></dd></div>
+      <div><dt>Nhân viên phụ trách</dt><dd>NV05 Bùi Thanh Tâm</dd></div>
+    </dl>
+  </section>
+
+  <section class="card u-mt-4" aria-labelledby="h-hist">
+    <h2 id="h-hist">Lịch sử cuộc gọi của khách</h2>
+    <div class="table-wrap" role="region" aria-labelledby="cap-hist" tabindex="0">
+      <table class="data">
+        <caption id="cap-hist">6 cuộc gọi 04–10/10/2026, mới nhất ở trên. Vuốt ngang để xem đủ cột trên điện thoại.</caption>
+        <thead>
+          <tr><th scope="col">Mã</th><th scope="col">Thời điểm</th><th scope="col">Hướng</th><th scope="col">Nhân viên</th><th scope="col">Trạng thái</th><th scope="col">Thời lượng</th><th scope="col">Ghi chú</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row" class="mono">CL0050</th><td>09/10/2026 15:31</td><td>Gọi ra</td><td>Ngô Gia Huy</td><td><span class="badge badge-completed">✓ Đã nghe máy</span></td><td class="num">7:05</td><td>Hỏi giá gói dịch vụ</td></tr>
+          <tr><th scope="row" class="mono">CL0032</th><td>07/10/2026 14:01</td><td>Gọi ra</td><td>Bùi Thanh Tâm</td><td><span class="badge badge-completed">✓ Đã nghe máy</span></td><td class="num">8:30</td><td>–</td></tr>
+          <tr><th scope="row" class="mono">CL0020</th><td>06/10/2026 10:38</td><td>Gọi vào</td><td>Võ Quốc Bảo</td><td><span class="badge badge-missed">✕ Nhỡ</span></td><td class="num">0:00</td><td>–</td></tr>
+          <tr><th scope="row" class="mono">CL0017</th><td>06/10/2026 08:07</td><td>Gọi vào</td><td>Bùi Thanh Tâm</td><td><span class="badge badge-completed">✓ Đã nghe máy</span></td><td class="num">9:11</td><td>–</td></tr>
+          <tr><th scope="row" class="mono">CL0008</th><td>04/10/2026 16:46</td><td>Gọi ra</td><td>Nguyễn Thị Lan</td><td><span class="badge badge-completed">✓ Đã nghe máy</span></td><td class="num">5:39</td><td>Hỏi giá gói dịch vụ</td></tr>
+          <tr><th scope="row" class="mono">CL0007</th><td>04/10/2026 16:34</td><td>Gọi ra</td><td>Bùi Thanh Tâm</td><td><span class="badge badge-no_answer">◔ Không trả lời</span></td><td class="num">0:00</td><td>–</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<dialog id="call-dialog" class="call-dialog" aria-labelledby="cd-title" aria-describedby="cd-desc">
+  <form method="dialog">
+    <h2 id="cd-title">Gọi cho khách hàng này?</h2>
+    <div id="cd-desc">
+      <p class="u-m0"><strong id="cd-name">Tên khách</strong></p>
+      <p class="call-phone phone" id="cd-phone">0901 000 0000</p>
+      <p class="muted">Vai Quản lý thấy số đầy đủ. Tổng đài sẽ quay số thay bạn.</p>
+    </div>
+    <div class="btn-group">
+      <button type="submit" class="btn btn-secondary" value="cancel" autofocus>Hủy</button>
+      <button type="submit" class="btn btn-call" value="call"><span aria-hidden="true">☎</span> Gọi</button>
+    </div>
+  </form>
+</dialog>
+<footer class="site-footer">Mockup tĩnh, dữ liệu mẫu bịa — không phải sản phẩm thật.</footer>
+<script src="call-dialog.js"></script>
+<script src="assets/analytics.js" defer></script>
+</body>
+</html>

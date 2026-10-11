@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thư viện thành phần – Dashboard Call Center</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua điều hướng, tới nội dung chính</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="index.html">Call Center (mẫu)</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mở hoặc đóng menu">
+    <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">Menu</label>
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="calls.html">Cuộc gọi</a></li>
+        <li><a href="customers.html">Khách hàng</a></li>
+        <li><a href="softphone.html">Softphone</a></li>
+        <li><a href="components.html" aria-current="page">Thành phần</a></li>
+      </ul>
+    </nav>
+    <span class="role-badge">Đang xem với vai: Quản lý</span>
+  </div>
+</header>
+
+<main id="main" class="page">
+  <p class="breadcrumb"><a href="index.html">Danh sách màn hình</a> / Thành phần</p>
+  <div class="page-header">
+    <h1>Thư viện thành phần</h1>
+    <button class="btn btn-secondary" type="button">Hành động phụ</button>
+  </div>
+  <p class="muted">Mọi số liệu là dữ liệu mẫu bịa.</p>
+
+  <section aria-labelledby="h-kpi" class="card">
+    <h2 id="h-kpi">Thẻ chỉ số</h2>
+    <div class="grid grid-4">
+      <article class="card kpi"><h3 class="kpi-label">Tổng cuộc gọi</h3><p class="kpi-value">60</p><p class="kpi-delta up">▲ Tăng 5,3% so với kỳ trước (mẫu)</p></article>
+      <article class="card kpi"><h3 class="kpi-label">Tỷ lệ nghe máy</h3><p class="kpi-value">58,3<span class="kpi-unit">%</span></p><p class="kpi-delta down">▼ Giảm 1,3 điểm % so với kỳ trước (mẫu)</p></article>
+      <article class="card kpi"><h3 class="kpi-label">Thời lượng TB</h3><p class="kpi-value">6:55<span class="kpi-unit">phút</span></p><p class="kpi-delta flat">■ Không đổi so với kỳ trước (mẫu)</p></article>
+      <article class="card kpi"><h3 class="kpi-label">Cuộc gọi nhỡ</h3><p class="kpi-value">8</p><p class="kpi-delta down">▼ Giảm 2 cuộc (mẫu)</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-chart" class="card u-mt-4">
+    <h2 id="h-chart">Palette biểu đồ (--chart-*) — FR-VIS-16, FR-VIS-18</h2>
+    <h3>Phân loại (8 màu, dùng theo thứ tự)</h3>
+    <ul class="sw-row" aria-label="Palette phân loại">
+      <li><span class="sw bg-chart-1"></span>1</li><li><span class="sw bg-chart-2"></span>2</li><li><span class="sw bg-chart-3"></span>3</li><li><span class="sw bg-chart-4"></span>4</li>
+      <li><span class="sw bg-chart-5"></span>5</li><li><span class="sw bg-chart-6"></span>6</li><li><span class="sw bg-chart-7"></span>7</li><li><span class="sw bg-chart-8"></span>8</li>
+    </ul>
+    <h3>Tuần tự (ít → nhiều)</h3>
+    <ul class="sw-row" aria-label="Palette tuần tự">
+      <li><span class="sw bg-seq-1"></span>1</li><li><span class="sw bg-seq-2"></span>2</li><li><span class="sw bg-seq-3"></span>3</li><li><span class="sw bg-seq-4"></span>4</li><li><span class="sw bg-seq-5"></span>5</li><li><span class="sw bg-seq-6"></span>6</li>
+    </ul>
+    <h3>Phân kỳ (dưới mục tiêu ← trung tính → trên mục tiêu)</h3>
+    <ul class="sw-row" aria-label="Palette phân kỳ">
+      <li><span class="sw bg-div-n3"></span>−3</li><li><span class="sw bg-div-n2"></span>−2</li><li><span class="sw bg-div-n1"></span>−1</li><li><span class="sw bg-div-0"></span>0</li>
+      <li><span class="sw bg-div-p1"></span>+1</li><li><span class="sw bg-div-p2"></span>+2</li><li><span class="sw bg-div-p3"></span>+3</li>
+    </ul>
+    <h3>Mẫu cột nhóm (dữ liệu mẫu)</h3>
+    <svg class="chart" viewBox="0 0 360 150" role="img" aria-label="Cột nhóm mẫu: hai chuỗi trên ba ngày. Ngày 1: 12 và 9; ngày 2: 15 và 7; ngày 3: 10 và 11.">
+      <line class="grid-line" x1="30" x2="350" y1="30" y2="30"/><line class="grid-line" x1="30" x2="350" y1="80" y2="80"/>
+      <line class="axis" x1="30" x2="350" y1="130" y2="130"/>
+      <rect x="50" y="70" width="30" height="60" rx="4" fill="var(--chart-1)"/><rect x="84" y="85" width="30" height="45" rx="4" fill="var(--chart-3)"/>
+      <rect x="150" y="55" width="30" height="75" rx="4" fill="var(--chart-1)"/><rect x="184" y="95" width="30" height="35" rx="4" fill="var(--chart-3)"/>
+      <rect x="250" y="80" width="30" height="50" rx="4" fill="var(--chart-1)"/><rect x="284" y="75" width="30" height="55" rx="4" fill="var(--chart-3)"/>
+      <text class="lbl" x="82" y="146" text-anchor="middle">Ngày 1</text><text class="lbl" x="182" y="146" text-anchor="middle">Ngày 2</text><text class="lbl" x="282" y="146" text-anchor="middle">Ngày 3</text>
+    </svg>
+    <ul class="legend"><li><span class="swatch bg-chart-1"></span>Đã nghe</li><li><span class="swatch bg-chart-3"></span>Nhỡ</li></ul>
+    <p class="muted">Màu không đứng một mình: mỗi chuỗi có nhãn/legend chữ; ô tuần tự nhạt phải có số liệu kèm theo.</p>
+  </section>
+
+  <section aria-labelledby="h-btn" class="card u-mt-4">
+    <h2 id="h-btn">Nút</h2>
+    <div class="btn-group">
+      <button class="btn" type="button">Gọi</button>
+      <button class="btn btn-secondary" type="button">Hủy</button>
+      <button class="btn btn-danger" type="button">Kết thúc</button>
+      <button class="btn btn-ghost" type="button">Thử lại</button>
+      <button class="btn" type="button" disabled>Gọi (không có số)</button>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-badge" class="card u-mt-4">
+    <h2 id="h-badge">Thẻ trạng thái cuộc gọi</h2>
+    <div class="btn-group">
+      <span class="badge badge-completed"><span aria-hidden="true">✓</span> Đã nghe máy</span>
+      <span class="badge badge-missed"><span aria-hidden="true">✕</span> Nhỡ</span>
+      <span class="badge badge-no_answer"><span aria-hidden="true">…</span> Không trả lời</span>
+      <span class="badge badge-busy"><span aria-hidden="true">⏸</span> Máy bận</span>
+      <span class="badge badge-failed"><span aria-hidden="true">!</span> Lỗi kết nối</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-filter" class="card u-mt-4">
+    <h2 id="h-filter">Bộ lọc</h2>
+    <form class="filter-bar" onsubmit="return false">
+      <input type="checkbox" id="filter-switch" class="filter-switch" aria-label="Mở hoặc đóng bộ lọc">
+      <label for="filter-switch" class="filter-label" aria-hidden="true">Bộ lọc (2)</label>
+      <div class="filter-body">
+        <div class="field"><label for="f-range">Khoảng ngày</label>
+          <select id="f-range"><option>7 ngày (04–10/10/2026)</option><option>Hôm nay</option><option>30 ngày</option><option>Tùy chọn</option></select></div>
+        <div class="field"><label for="f-agent">Nhân viên</label>
+          <select id="f-agent"><option>Tất cả</option><option>Nguyễn Văn An (mẫu)</option></select></div>
+        <div class="field"><label for="f-status">Trạng thái</label>
+          <select id="f-status"><option>Tất cả</option><option>Nhỡ</option></select></div>
+        <div class="field"><label for="f-q">Tìm kiếm</label><input id="f-q" type="search" placeholder="Tên khách hoặc mã CL…"></div>
+      </div>
+    </form>
+    <ul class="chips" aria-label="Bộ lọc đang áp dụng">
+      <li class="chip">Trạng thái: Nhỡ <button type="button" aria-label="Bỏ lọc trạng thái Nhỡ">✕</button></li>
+      <li class="chip">7 ngày <button type="button" aria-label="Bỏ lọc khoảng ngày">✕</button></li>
+      <li><button class="btn btn-ghost" type="button">Xóa tất cả</button></li>
+    </ul>
+    <p class="muted" role="status">8 cuộc gọi khớp bộ lọc (mẫu)</p>
+  </section>
+
+  <section aria-labelledby="h-table" class="u-mt-4">
+    <h2 id="h-table">Bảng</h2>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Bảng cuộc gọi mẫu, cuộn ngang được">
+      <table class="data">
+        <caption>Cuộc gọi gần đây (dữ liệu mẫu)</caption>
+        <thead><tr>
+          <th scope="col"><button class="sort" type="button" aria-label="Sắp xếp theo thời điểm, đang giảm dần">Thời điểm <span aria-hidden="true">▼</span></button></th>
+          <th scope="col">Nhân viên</th><th scope="col">Khách hàng</th><th scope="col">Trạng thái</th><th scope="col" class="num">Thời lượng</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>10/10/2026 09:12</td><td>Nguyễn Văn An</td><td>Trần Thị Bình</td><td><span class="badge badge-completed">✓ Đã nghe máy</span></td><td class="num">6:41</td></tr>
+          <tr><td>10/10/2026 08:47</td><td>Lê Minh Châu</td><td>Phạm Quốc Dũng</td><td><span class="badge badge-missed">✕ Nhỡ</span></td><td class="num">0:00</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination"><span class="muted">1–10 / 60</span>
+      <div class="btn-group"><button class="btn btn-secondary" type="button" disabled>Trước</button><button class="btn btn-secondary" type="button">Sau</button></div></div>
+  </section>
+
+  <section aria-labelledby="h-alert" class="card u-mt-4">
+    <h2 id="h-alert">Thông báo và trạng thái</h2>
+    <div class="grid">
+      <div class="alert alert-info" role="status"><p><strong>Thông tin</strong>Đây là dữ liệu mẫu.</p></div>
+      <div class="alert alert-success" role="status"><p><strong>Đã lưu</strong>Ghi chú cuộc gọi đã được lưu.</p></div>
+      <div class="alert alert-warning" role="status"><p><strong>Cảnh báo</strong>Tổng đài phản hồi chậm.</p></div>
+      <div class="alert alert-error" role="alert"><div><p><strong>Không tải được dữ liệu</strong>Kiểm tra kết nối rồi thử lại.</p><div class="alert-actions"><button class="btn btn-secondary" type="button">Thử lại</button></div></div></div>
+      <div role="status" aria-label="Đang tải"><div class="skeleton u-sk-r60"></div><div class="skeleton u-sk-r-mt"></div></div>
+      <div class="empty"><h3>Không có cuộc gọi khớp bộ lọc</h3><p>Thử đổi khoảng ngày hoặc xóa bộ lọc.</p><button class="btn btn-secondary" type="button">Xóa bộ lọc</button></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">Mockup tĩnh, dữ liệu mẫu bịa — không phải sản phẩm thật.</footer>
+<script src="assets/analytics.js" defer></script>
+</body>
+</html>

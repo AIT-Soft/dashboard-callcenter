@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Softphone và ghi chú sau cuộc gọi – Call Center</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua điều hướng, tới nội dung chính</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="index.html">Call Center (mẫu)</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mở hoặc đóng menu">
+    <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">Menu</label>
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="calls.html">Cuộc gọi</a></li>
+        <li><a href="customers.html">Khách hàng</a></li>
+        <li><a href="softphone.html" aria-current="page">Softphone</a></li>
+        <li><a href="components.html">Thành phần</a></li>
+      </ul>
+    </nav>
+    <span class="role-badge">Đang xem với vai: Nhân viên (NV05 Bùi Thanh Tâm)</span>
+  </div>
+</header>
+
+<main id="main" class="page">
+  <p class="breadcrumb"><a href="index.html">Danh sách màn hình</a> / Softphone</p>
+  <div class="page-header"><h1>Softphone và ghi chú sau cuộc gọi</h1></div>
+  <p class="muted">Chín trạng thái xem cùng lúc (không cần JS). Khách mẫu: Công ty CP Thành Đạt, số che <strong>0901 *** 013</strong> (vai Nhân viên, FR-28). Thực tế chỉ có một softphone nổi ở đáy màn hình, đổi nội dung theo trạng thái.<code>design-softphone.md</code>.</p>
+
+  <section aria-labelledby="h-states">
+    <h2 id="h-states">1. Các trạng thái cuộc gọi</h2>
+    <div class="sp-grid">
+
+      <div class="sp-cell" id="san-sang">
+        <h2>1. Sẵn sàng</h2>
+        <article class="sp sp-ready" aria-label="Softphone: Sẵn sàng">
+          <div class="sp-head"><span class="sp-icon" aria-hidden="true">✔</span><span>Sẵn sàng</span></div>
+          <div class="sp-body" role="status">
+            <p class="sp-who">Chưa có cuộc gọi</p>
+            <p class="sp-sub">Micro đã sẵn sàng. Tổng đài kết nối. Chọn khách rồi bấm Gọi.</p>
+            <p class="sp-sub">Kiểu gọi: WebRTC (dự phòng: gọi lại máy của bạn)</p>
+          </div>
+          <div class="sp-actions"><button type="button" class="btn btn-call"><span aria-hidden="true">☎</span> Gọi</button></div>
+        </article>
+      </div>
+
+      <div class="sp-cell" id="dang-ket-noi">
+        <h2>2. Đang kết nối</h2>
+        <article class="sp sp-connecting" aria-label="Softphone: Đang kết nối">
+          <div class="sp-head"><span class="sp-icon" aria-hidden="true">⟳</span><span>Đang kết nối</span><span class="sp-timer">00:03</span></div>
+          <div class="sp-body" role="status">
+            <p class="sp-who">Công ty CP Thành Đạt</p>
+            <p class="sp-num">0901 *** 013</p>
+            <p class="sp-sub">Đang nối tới tổng đài, chưa quay số.</p>
+            <p class="sp-sub">Nếu dùng kiểu gọi lại: tổng đài đổ chuông máy của bạn trước, hãy nhấc máy.</p>
+          </div>
+          <div class="sp-actions"><button type="button" class="btn btn-secondary">Hủy</button></div>
+        </article>
+      </div>
+
+      <div class="sp-cell" id="do-chuong">
+        <h2>3. Đổ chuông</h2>
+        <article class="sp sp-ringing" aria-label="Softphone: Đổ chuông">
+          <div class="sp-head"><span class="sp-icon" aria-hidden="true">🔔</span><span>Đổ chuông</span><span class="sp-timer">00:07</span></div>
+          <div class="sp-body" role="status">
+            <p class="sp-who">Công ty CP Thành Đạt</p>
+            <p class="sp-num">0901 *** 013</p>
+            <p class="sp-sub">Máy khách đang đổ chuông, chờ khách trả lời.</p>
+          </div>
+          <div class="sp-actions"><button type="button" class="btn sp-end"><span aria-hidden="true">✖</span> Hủy cuộc gọi</button></div>
+        </article>
+      </div>
+
+      <div class="sp-cell" id="dang-noi">
+        <h2>4. Đang nói</h2>
+        <article class="sp sp-talking" aria-label="Softphone: Đang nói">
+          <div class="sp-head"><span class="sp-icon" aria-hidden="true">🎙</span><span>Đang nói</span><span class="sp-timer" role="timer" aria-label="Thời lượng 02 phút 14 giây">02:14</span></div>
+          <div class="sp-body" role="status">
+            <p class="sp-who">Công ty CP Thành Đạt</p>
+            <p class="sp-num">0901 *** 013 · Micro đang bật</p>
+          </div>
+          <div class="sp-actions">
+            <button type="button" class="btn btn-secondary" aria-pressed="false"><span aria-hidden="true">🔇</span> Tắt tiếng</button>
+            <button type="button" class="btn btn-secondary"><span aria-hidden="true">⏸</span> Giữ máy</button>
+            <button type="button" class="btn sp-end"><span aria-hidden="true">✖</span> Kết thúc</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="sp-cell" id="giu-may">
+        <h2>5. Giữ máy</h2>
+        <article class="sp sp-hold" aria-label="Softphone: Giữ máy">
+          <div class="sp-head"><span class="sp-icon" aria-hidden="true">⏸</span><span>Giữ máy</span><span class="sp-timer" role="timer" aria-label="Đã giữ máy 00 phút 25 giây">00:25</span></div>
+          <div class="sp-body" role="status">
+            <p class="sp-who">Công ty CP Thành Đạt</p>
+            <p class="sp-num">0901 *** 013 · Khách đang nghe nhạc chờ</p>
+          </div>
+          <div class="sp-actions">
+            <button type="button" class="btn btn-call"><span aria-hidden="true">▶</span> Tiếp tục</button>
+            <button type="button" class="btn sp-end"><span aria-hidden="true">✖</span> Kết thúc</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="sp-cell" id="ket-thuc">
+        <h2>6. Kết thúc</h2>
+        <article class="sp sp-ended" aria-label="Softphone: Kết thúc">
+          <div class="sp-head"><span class="sp-icon" aria-hidden="true">■</span><span>Kết thúc</span><span class="sp-timer">03:42</span></div>
+          <div class="sp-body" role="status">
+            <p class="sp-who">Công ty CP Thành Đạt</p>
+            <p class="sp-num">0901 *** 013 · Tổng thời lượng 03:42</p>
+            <p class="sp-sub">Cuộc gọi đã kết thúc. Hãy ghi chú ngay (mục 3).</p>
+          </div>
+          <div class="sp-actions">
+            <a class="btn btn-call" href="#ghi-chu">Ghi chú</a>
+            <button type="button" class="btn btn-secondary"><span aria-hidden="true">☎</span> Gọi lại</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="sp-cell" id="nho">
+        <h2>7. Nhỡ</h2>
+        <article class="sp sp-missed" aria-label="Softphone: Nhỡ">
+          <div class="sp-head"><span class="sp-icon" aria-hidden="true">✖</span><span>Nhỡ (không trả lời)</span><span class="sp-timer">00:30</span></div>
+          <div class="sp-body" role="status">
+            <p class="sp-who">Công ty CP Thành Đạt</p>
+            <p class="sp-num">0901 *** 013</p>
+            <p class="sp-sub">Khách không nhấc máy sau 30 giây.</p>
+          </div>
+          <div class="sp-actions">
+            <button type="button" class="btn btn-call"><span aria-hidden="true">☎</span> Gọi lại</button>
+            <a class="btn btn-secondary" href="#ghi-chu">Hẹn gọi lại</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="sp-cell" id="loi-micro">
+        <h2>8. Lỗi: không có quyền micro</h2>
+        <article class="sp sp-error" aria-label="Softphone: Lỗi không có quyền micro">
+          <div class="sp-head"><span class="sp-icon" aria-hidden="true">⚠</span><span>Lỗi: không có quyền micro</span></div>
+          <div class="sp-body" role="alert">
+            <p class="sp-who">Không thể gọi bằng trình duyệt</p>
+            <p class="sp-sub">Nguyên nhân: trình duyệt chặn micro (hoặc không tìm thấy micro). Cuộc gọi chưa được thực hiện.</p>
+          </div>
+          <div class="sp-body">
+            <p class="sp-sub"><strong>Cách xử lý:</strong></p>
+            <ol class="sp-help">
+              <li>Bấm biểu tượng ổ khóa cạnh thanh địa chỉ, đặt "Micro" thành Cho phép.</li>
+              <li>Kiểm tra micro đã cắm và không bị ứng dụng khác chiếm.</li>
+              <li>Bấm Thử lại. Nếu vẫn lỗi, chọn Gọi lại máy của tôi.</li>
+            </ol>
+          </div>
+          <div class="sp-actions">
+            <button type="button" class="btn btn-call">Thử lại</button>
+            <button type="button" class="btn btn-secondary">Hướng dẫn cấp quyền</button>
+            <button type="button" class="btn btn-secondary">Gọi lại máy của tôi</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="sp-cell" id="loi-tong-dai">
+        <h2>9. Lỗi: tổng đài không sẵn sàng</h2>
+        <article class="sp sp-error" aria-label="Softphone: Lỗi tổng đài không sẵn sàng">
+          <div class="sp-head"><span class="sp-icon" aria-hidden="true">⚠</span><span>Lỗi: tổng đài không sẵn sàng</span></div>
+          <div class="sp-body" role="alert">
+            <p class="sp-who">Không kết nối được tổng đài</p>
+            <p class="sp-sub">Nguyên nhân: tổng đài không phản hồi hoặc mất mạng (mã mẫu PBX_UNAVAILABLE). Cuộc gọi chưa được thực hiện.</p>
+            <p class="sp-sub">Thử lại sau ít phút. Nếu lặp lại, báo quản trị viên.</p>
+          </div>
+          <div class="sp-actions">
+            <button type="button" class="btn btn-call">Thử lại</button>
+            <button type="button" class="btn btn-secondary">Đóng</button>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="h-notes" id="ghi-chu">
+    <h2 id="h-notes">2. Ghi chú sau cuộc gọi</h2>
+    <p class="muted">Hiện ra dưới softphone sau trạng thái Kết thúc hoặc Nhỡ. Hai bản: bình thường và lỗi kiểm tra (để trống kết quả).</p>
+    <div class="sp-grid">
+
+      <div class="sp-cell">
+        <h3>Bình thường</h3>
+        <article class="sp" aria-label="Ghi chú sau cuộc gọi">
+          <form class="sp-form" action="#" onsubmit="return false">
+            <p class="sp-sub" role="status">Cuộc gọi tới Công ty CP Thành Đạt (0901 *** 013), 03:42.</p>
+            <fieldset>
+              <legend>Kết quả cuộc gọi <span aria-hidden="true">*</span><span class="sr-only"> (bắt buộc)</span></legend>
+              <label class="opt"><input type="radio" name="kq1" value="tu-van" checked> Đã tư vấn</label>
+              <label class="opt"><input type="radio" name="kq1" value="quan-tam"> Khách quan tâm</label>
+              <label class="opt"><input type="radio" name="kq1" value="tu-choi"> Khách từ chối</label>
+              <label class="opt"><input type="radio" name="kq1" value="hen"> Cần gọi lại</label>
+              <label class="opt"><input type="radio" name="kq1" value="sai-so"> Sai số</label>
+            </fieldset>
+            <div>
+              <label for="gc1">Ghi chú</label>
+              <textarea id="gc1" rows="3">Khách muốn nhận báo giá gói 20 máy qua email.</textarea>
+            </div>
+            <div>
+              <label for="hen1">Hẹn gọi lại (ngày giờ)</label>
+              <input type="datetime-local" id="hen1" value="2026-10-14T09:30">
+            </div>
+            <div class="sp-actions u-p0">
+              <button type="submit" class="btn btn-call">Lưu</button>
+              <button type="button" class="btn btn-secondary">Bỏ qua</button>
+            </div>
+          </form>
+        </article>
+      </div>
+
+      <div class="sp-cell">
+        <h3>Lỗi kiểm tra: thiếu kết quả</h3>
+        <article class="sp" aria-label="Ghi chú sau cuộc gọi, có lỗi">
+          <form class="sp-form" action="#" onsubmit="return false">
+            <p class="sp-err" role="alert">Chưa lưu được: vui lòng chọn kết quả cuộc gọi.</p>
+            <fieldset aria-describedby="err-kq2">
+              <legend>Kết quả cuộc gọi <span aria-hidden="true">*</span><span class="sr-only"> (bắt buộc)</span></legend>
+              <p class="sp-err" id="err-kq2">Chọn một kết quả.</p>
+              <label class="opt"><input type="radio" name="kq2" value="tu-van" aria-invalid="true"> Đã tư vấn</label>
+              <label class="opt"><input type="radio" name="kq2" value="quan-tam" aria-invalid="true"> Khách quan tâm</label>
+              <label class="opt"><input type="radio" name="kq2" value="tu-choi" aria-invalid="true"> Khách từ chối</label>
+              <label class="opt"><input type="radio" name="kq2" value="hen" aria-invalid="true"> Cần gọi lại</label>
+              <label class="opt"><input type="radio" name="kq2" value="sai-so" aria-invalid="true"> Sai số</label>
+            </fieldset>
+            <div>
+              <label for="gc2">Ghi chú</label>
+              <textarea id="gc2" rows="3"></textarea>
+            </div>
+            <div>
+              <label for="hen2">Hẹn gọi lại (ngày giờ)</label>
+              <input type="datetime-local" id="hen2">
+            </div>
+            <div class="sp-actions u-p0">
+              <button type="submit" class="btn btn-call">Lưu</button>
+              <button type="button" class="btn btn-secondary">Bỏ qua</button>
+            </div>
+          </form>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="h-dock">
+    <h2 id="h-dock">3. Vị trí khi dùng thật</h2>
+    <p class="muted">Từ 480px: nổi ở góc phải dưới, rộng 360px. Dưới 480px: bám đáy màn hình, rộng đủ chiều ngang, nút Kết thúc luôn nằm trong vùng nhìn thấy (AC-24.3). Thông báo trạng thái đi qua một vùng <code>aria-live="polite"</code> duy nhất; lỗi dùng <code>role="alert"</code>. Trong trang mẫu này mỗi khối có vùng riêng để xem cùng lúc.</p>
+  </section>
+</main>
+<footer class="site-footer">Mockup tĩnh, dữ liệu mẫu bịa — không phải sản phẩm thật.</footer>
+<script src="assets/analytics.js" defer></script>
+</body>
+</html>

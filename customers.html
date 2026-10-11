@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khách hàng (vai Nhân viên) – Call Center</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua điều hướng, tới nội dung chính</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="index.html">Call Center (mẫu)</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mở hoặc đóng menu">
+    <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">Menu</label>
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="calls.html">Cuộc gọi</a></li>
+        <li><a href="customers.html" aria-current="page">Khách hàng</a></li>
+        <li><a href="softphone.html">Softphone</a></li>
+        <li><a href="components.html">Thành phần</a></li>
+      </ul>
+    </nav>
+    <span class="role-badge">Đang xem với vai: Nhân viên (NV05 Bùi Thanh Tâm)</span>
+  </div>
+</header>
+
+<main id="main" class="page">
+  <p class="breadcrumb"><a href="index.html">Danh sách màn hình</a> / Khách hàng</p>
+  <div class="page-header">
+    <h1>Khách hàng</h1>
+    <a class="btn btn-secondary" href="customers-manager.html">Xem bản vai Quản lý (số đầy đủ)</a>
+  </div>
+  <p class="muted">Dữ liệu mẫu bịa (bộ dữ liệu chung). Bản vai Nhân viên: số điện thoại luôn che một phần, kể cả trong hộp xác nhận. Bấm “Gọi” chỉ mở hộp xác nhận minh họa, không gọi thật.</p>
+
+  <div id="call-status" class="alert alert-info" role="status" hidden></div>
+
+  <section class="card" aria-labelledby="h-search">
+    <h2 id="h-search" class="sr-only">Tìm khách hàng</h2>
+    <form action="#" onsubmit="return false" class="field">
+      <label for="c-search">Tìm theo tên hoặc mã khách</label>
+      <input type="search" id="c-search" placeholder="Ví dụ: KH013 hoặc Thành Đạt" autocomplete="off">
+    </form>
+  </section>
+
+  <p class="result-count u-count" role="status">20 khách hàng · 3 khách bạn có thể gọi</p>
+  <p class="muted" id="why-scope">Nút “Gọi” màu xám: khách ngoài phạm vi của bạn (không phải khách bạn phụ trách và chưa có cuộc gọi của bạn). Tên khách có gạch chân mở trang chi tiết (chỉ KH013 có trang mẫu).</p>
+
+  <div class="table-wrap" role="region" aria-labelledby="cap-cust" tabindex="0">
+    <table class="data cust">
+      <caption id="cap-cust">Danh sách 20 khách hàng, số điện thoại che một phần. Vuốt ngang để xem đủ cột trên điện thoại.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Khách hàng</th>
+          <th scope="col">Số điện thoại (che)</th>
+          <th scope="col">Gọi</th>
+          <th scope="col">Hạng</th>
+          <th scope="col">NV phụ trách</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Công ty TNHH Sao Mai<span class="cust-id">KH001</span></th><td class="phone">0901 *** 001</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Công ty TNHH Sao Mai (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">Thường xuyên</span></td><td>NV01 Nguyễn Thị Lan</td></tr>
+        <tr><th scope="row">Trần Văn An<span class="cust-id">KH002</span></th><td class="phone">0901 *** 002</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Trần Văn An (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">VIP</span></td><td>NV02 Võ Quốc Bảo</td></tr>
+        <tr><th scope="row">Lê Thị Bích<span class="cust-id">KH003</span></th><td class="phone">0901 *** 003</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Lê Thị Bích (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">Tiềm năng</span></td><td>NV03 Đặng Ngọc Mai</td></tr>
+        <tr><th scope="row">Công ty CP Hải Đăng<span class="cust-id">KH004</span></th><td class="phone">0901 *** 004</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Công ty CP Hải Đăng (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">Mới</span></td><td>NV04 Hoàng Văn Khoa</td></tr>
+        <tr><th scope="row">Phạm Quốc Cường<span class="cust-id">KH005</span></th><td class="phone">0901 *** 005</td><td><button type="button" class="btn btn-call" data-call data-name="Phạm Quốc Cường" data-phone="0901 *** 005" aria-label="Gọi Phạm Quốc Cường"><span aria-hidden="true">☎</span> Gọi</button></td><td><span class="badge badge-info">Thường xuyên</span></td><td>NV05 Bùi Thanh Tâm</td></tr>
+        <tr><th scope="row">Nguyễn Hoài Dung<span class="cust-id">KH006</span></th><td class="phone">0901 *** 006</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Nguyễn Hoài Dung (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">VIP</span></td><td>NV06 Ngô Gia Huy</td></tr>
+        <tr><th scope="row">Cửa hàng Minh Châu<span class="cust-id">KH007</span></th><td class="phone">0901 *** 007</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Cửa hàng Minh Châu (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">Tiềm năng</span></td><td>NV07 Đỗ Phương Linh</td></tr>
+        <tr><th scope="row">Hoàng Gia Bảo<span class="cust-id">KH008</span></th><td class="phone">0901 *** 008</td><td><button type="button" class="btn btn-call" data-call data-name="Hoàng Gia Bảo" data-phone="0901 *** 008" aria-label="Gọi Hoàng Gia Bảo"><span aria-hidden="true">☎</span> Gọi</button></td><td><span class="badge badge-info">Mới</span></td><td>NV08 Vũ Anh Tuấn</td></tr>
+        <tr><th scope="row">Đinh Thị Hoa<span class="cust-id">KH009</span></th><td class="phone">0901 *** 009</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Đinh Thị Hoa (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">Thường xuyên</span></td><td>NV01 Nguyễn Thị Lan</td></tr>
+        <tr><th scope="row">Công ty TNHH An Phát<span class="cust-id">KH010</span></th><td class="phone">0901 *** 010</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Công ty TNHH An Phát (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">VIP</span></td><td>NV02 Võ Quốc Bảo</td></tr>
+        <tr><th scope="row">Lương Văn Hiếu<span class="cust-id">KH011</span></th><td class="phone">0901 *** 011</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Lương Văn Hiếu (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">Tiềm năng</span></td><td>NV03 Đặng Ngọc Mai</td></tr>
+        <tr><th scope="row">Mai Thị Kim<span class="cust-id">KH012</span></th><td class="phone">0901 *** 012</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Mai Thị Kim (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">Mới</span></td><td>NV04 Hoàng Văn Khoa</td></tr>
+        <tr><th scope="row"><a href="customer-detail.html">Công ty CP Thành Đạt</a><span class="cust-id">KH013</span></th><td class="phone">0901 *** 013</td><td><button type="button" class="btn btn-call" data-call data-name="Công ty CP Thành Đạt" data-phone="0901 *** 013" aria-label="Gọi Công ty CP Thành Đạt"><span aria-hidden="true">☎</span> Gọi</button></td><td><span class="badge badge-info">Thường xuyên</span></td><td>NV05 Bùi Thanh Tâm</td></tr>
+        <tr><th scope="row">Trịnh Công Lâm<span class="cust-id">KH014</span></th><td class="phone">0901 *** 014</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Trịnh Công Lâm (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">VIP</span></td><td>NV06 Ngô Gia Huy</td></tr>
+        <tr><th scope="row">Phan Thị Ngân<span class="cust-id">KH015</span></th><td class="phone">0901 *** 015</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Phan Thị Ngân (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">Tiềm năng</span></td><td>NV07 Đỗ Phương Linh</td></tr>
+        <tr><th scope="row">Tạ Quang Phúc<span class="cust-id">KH016</span></th><td class="phone">0901 *** 016</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Tạ Quang Phúc (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">Mới</span></td><td>NV08 Vũ Anh Tuấn</td></tr>
+        <tr><th scope="row">Cao Thị Quyên<span class="cust-id">KH017</span></th><td class="phone">0901 *** 017</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Cao Thị Quyên (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">Thường xuyên</span></td><td>NV01 Nguyễn Thị Lan</td></tr>
+        <tr><th scope="row">Công ty TNHH Việt Tiến<span class="cust-id">KH018</span></th><td class="phone">0901 *** 018</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Công ty TNHH Việt Tiến (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">VIP</span></td><td>NV02 Võ Quốc Bảo</td></tr>
+        <tr><th scope="row">Dương Văn Sơn<span class="cust-id">KH019</span></th><td class="phone">0901 *** 019</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Dương Văn Sơn (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">Tiềm năng</span></td><td>NV03 Đặng Ngọc Mai</td></tr>
+        <tr><th scope="row">Lý Thị Thu<span class="cust-id">KH020</span></th><td class="phone">0901 *** 020</td><td><button type="button" class="btn btn-call" aria-disabled="true" aria-describedby="why-scope" aria-label="Gọi Lý Thị Thu (không khả dụng, ngoài phạm vi)"><span aria-hidden="true">☎</span> Gọi</button><span class="scope-hint">Ngoài phạm vi</span></td><td><span class="badge badge-info">Mới</span></td><td>NV04 Hoàng Văn Khoa</td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<dialog id="call-dialog" class="call-dialog" aria-labelledby="cd-title" aria-describedby="cd-desc">
+  <form method="dialog">
+    <h2 id="cd-title">Gọi cho khách hàng này?</h2>
+    <div id="cd-desc">
+      <p class="u-m0"><strong id="cd-name">Tên khách</strong></p>
+      <p class="call-phone phone" id="cd-phone">0901 *** 000</p>
+      <p class="muted">Số đang được che theo quyền của vai Nhân viên. Tổng đài sẽ quay số thay bạn.</p>
+    </div>
+    <div class="btn-group">
+      <button type="submit" class="btn btn-secondary" value="cancel" autofocus>Hủy</button>
+      <button type="submit" class="btn btn-call" value="call"><span aria-hidden="true">☎</span> Gọi</button>
+    </div>
+  </form>
+</dialog>
+<footer class="site-footer">Mockup tĩnh, dữ liệu mẫu bịa — không phải sản phẩm thật.</footer>
+<script src="call-dialog.js"></script>
+<script src="assets/analytics.js" defer></script>
+</body>
+</html>

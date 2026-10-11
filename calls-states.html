@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuộc gọi – các trạng thái</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua điều hướng, tới nội dung chính</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="index.html">Call Center (mẫu)</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mở hoặc đóng menu">
+    <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">Menu</label>
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="calls.html" aria-current="page">Cuộc gọi</a></li>
+        <li><a href="customers.html">Khách hàng</a></li>
+        <li><a href="softphone.html">Softphone</a></li>
+        <li><a href="components.html">Thành phần</a></li>
+      </ul>
+    </nav>
+    <span class="role-badge">Đang xem với vai: Giám sát</span>
+  </div>
+</header>
+
+<main id="main" class="page">
+  <p class="breadcrumb"><a href="index.html">Danh sách màn hình</a> / <a href="calls.html">Cuộc gọi</a> / Các trạng thái</p>
+  <div class="page-header"><h1>Cuộc gọi – đang tải, rỗng, không tìm thấy, lỗi</h1></div>
+  <p class="muted">Minh họa, dữ liệu mẫu.</p>
+  <ul class="state-nav" aria-label="Chuyển tới trạng thái">
+    <li><a class="btn btn-secondary" href="#dang-tai">Đang tải</a></li>
+    <li><a class="btn btn-secondary" href="#rong">Rỗng</a></li>
+    <li><a class="btn btn-secondary" href="#khong-tim-thay">Không tìm thấy</a></li>
+    <li><a class="btn btn-secondary" href="#loi">Lỗi</a></li>
+    <li><a class="btn btn-secondary" href="#loi-bo-loc">Lỗi bộ lọc</a></li>
+    <li><a class="btn btn-ghost" href="calls.html">Bản đầy đủ dữ liệu</a></li>
+  </ul>
+
+  <section id="dang-tai" class="card u-mb-5" aria-labelledby="h-load">
+    <h2 id="h-load">1. Đang tải</h2>
+    <p class="muted">Bộ lọc vẫn hiển thị; 10 dòng khung xương giữ chiều cao bảng.</p>
+    <div role="status" aria-busy="true" aria-live="polite">
+      <p class="sr-only">Đang tải danh sách cuộc gọi…</p>
+      <div aria-hidden="true" class="u-grid-g2">
+        <div class="skeleton u-h-36"></div><div class="skeleton u-h-36"></div><div class="skeleton u-h-36"></div>
+        <div class="skeleton u-h-36"></div><div class="skeleton u-h-36"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rong" class="card u-mb-5" aria-labelledby="h-empty">
+    <h2 id="h-empty">2. Rỗng (bộ lọc không có cuộc gọi)</h2>
+    <div class="empty" role="status">
+      <p><strong>Không có cuộc gọi nào khớp bộ lọc.</strong></p>
+      <p>Thử mở rộng khoảng ngày hoặc bỏ bớt trạng thái.</p>
+      <button type="button" class="btn">Xóa tất cả bộ lọc</button>
+    </div>
+  </section>
+
+  <section id="khong-tim-thay" class="card u-mb-5" aria-labelledby="h-nf">
+    <h2 id="h-nf">3. Tìm kiếm không có kết quả</h2>
+    <div class="field u-mw-420"><label for="s2">Tìm theo tên khách hoặc mã cuộc gọi</label><input type="search" id="s2" value="Zzz"></div>
+    <div class="empty" role="status">
+      <p><strong>Không tìm thấy kết quả cho “Zzz”.</strong></p>
+      <p>Kiểm tra chính tả hoặc thử mã dạng CL0001.</p>
+      <button type="button" class="btn btn-secondary">Xóa tìm kiếm</button>
+    </div>
+  </section>
+
+  <section id="loi" class="card" aria-labelledby="h-err">
+    <h2 id="h-err">4. Lỗi tải dữ liệu</h2>
+    <div class="alert alert-error" role="alert">
+      <div><strong>Không tải được danh sách cuộc gọi.</strong>
+        <p>Mất kết nối tới máy chủ (mô phỏng). Bộ lọc của bạn được giữ nguyên.</p>
+        <div class="alert-actions"><button type="button" class="btn">Thử lại</button></div></div>
+    </div>
+  </section>
+
+  <section id="loi-bo-loc" class="card u-mt-5" aria-labelledby="h-date">
+    <h2 id="h-date">5. Lỗi bộ lọc: ngày không hợp lệ</h2>
+    <p class="muted">Khoảng ngày “Tùy chọn” với ngày kết thúc trước ngày bắt đầu. Bảng giữ kết quả lần lọc trước, chưa áp dụng bộ lọc sai.</p>
+    <div role="alert" class="alert alert-error" id="date-summary">
+      <div><strong>Khoảng ngày không hợp lệ.</strong>
+        <p>Ngày kết thúc phải sau hoặc bằng ngày bắt đầu. Hãy sửa hai ô ngày bên dưới.</p>
+        <div class="alert-actions"><a class="btn btn-secondary" href="#to-date">Đi tới ô Đến ngày</a>
+          <button type="button" class="btn btn-ghost">Về 7 ngày gần nhất</button></div></div>
+    </div>
+    <div class="u-grid-200 u-mt-3">
+      <div class="field"><label for="from-date">Từ ngày</label><input type="date" id="from-date" value="2026-10-08"></div>
+      <div class="field field-error"><label for="to-date">Đến ngày</label>
+        <input type="date" id="to-date" value="2026-10-01" aria-invalid="true" aria-describedby="to-date-msg">
+        <p class="field-msg" id="to-date-msg"><span aria-hidden="true">⚠</span> Phải từ 08/10/2026 trở đi.</p></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">Mockup tĩnh, dữ liệu mẫu bịa — không phải sản phẩm thật.</footer>
+<script src="assets/analytics.js" defer></script>
+</body>
+</html>

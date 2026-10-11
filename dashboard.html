@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard KPI – Call Center</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua điều hướng, tới nội dung chính</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="index.html">Call Center (mẫu)</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mở hoặc đóng menu">
+    <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">Menu</label>
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <ul>
+        <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+        <li><a href="calls.html">Cuộc gọi</a></li>
+        <li><span class="nav-soon">Khách hàng (chưa có mockup)</span></li>
+        <li><a href="softphone.html">Softphone</a></li>
+        <li><a href="components.html">Thành phần</a></li>
+        <li><a href="charts.html">Biểu đồ</a></li>
+      </ul>
+    </nav>
+    <span class="role-badge">Đang xem với vai: Quản lý</span>
+  </div>
+</header>
+
+<main id="main" class="page">
+  <p class="breadcrumb"><a href="index.html">Danh sách màn hình</a> / Dashboard</p>
+  <div class="page-header">
+    <h1>Dashboard tổng quan</h1>
+    <div class="field u-minw-220">
+      <label for="f-range">Khoảng ngày</label>
+      <select id="f-range"><option>7 ngày (04/10–10/10/2026)</option><option>Hôm nay</option><option>30 ngày</option><option>Tùy chọn</option></select>
+    </div>
+  </div>
+  <p class="muted">Dữ liệu mẫu bịa (<code>documents/spec/sample-data.json</code>, 60 cuộc gọi, 04–10/10/2026). So sánh kỳ trước và mục tiêu SLA 80% là số mẫu (chờ xác nhận).
+    Xem các bản: <a href="dashboard-states.html#dang-tai">đang tải</a>, <a href="dashboard-states.html#rong">rỗng</a>, <a href="dashboard-states.html#loi">lỗi</a>. Biểu đồ nào cũng có mục “Xem dữ liệu dạng bảng”.</p>
+
+  <!-- NHÓM 1: CHỈ SỐ CHÍNH -->
+  <section class="dash-section u-mt-4" aria-labelledby="h-kpi">
+    <h2 id="h-kpi">Chỉ số chính</h2>
+    <p class="muted">Bốn chỉ số của kỳ, kèm đường xu hướng 7 ngày (04–10/10).</p>
+    <div class="grid grid-4">
+      <article class="card kpi"><h3 class="kpi-label">Tổng cuộc gọi</h3><p class="kpi-value">60<span class="kpi-unit">cuộc</span></p><p class="kpi-delta up">▲ Tăng 5,3% so với kỳ trước (mẫu)</p>
+        <svg class="spark kpi-spark" viewBox="0 0 120 36" role="img" aria-label="Xu hướng tổng cuộc gọi 7 ngày 04–10/10: 8, 8, 8, 11, 7, 10, 8. Cao nhất 11 vào 07/10."><line x1="4" x2="116" y1="32" y2="32"/><polyline points="4,25 22.7,25 41.3,25 60,4 78.7,32 97.3,11 116,25"/><circle cx="116" cy="25" r="3.5"/></svg></article>
+      <article class="card kpi"><h3 class="kpi-label">Tỷ lệ nghe máy</h3><p class="kpi-value">58,3<span class="kpi-unit">%</span></p><p class="kpi-delta down">▼ Giảm 1,3 điểm % so với kỳ trước (mẫu)</p>
+        <svg class="spark kpi-spark" viewBox="0 0 120 36" role="img" aria-label="Xu hướng tỷ lệ nghe máy 7 ngày: 62,5%, 25,0%, 62,5%, 81,8%, 28,6%, 40,0%, 100%. Dao động mạnh."><line x1="4" x2="116" y1="32" y2="32"/><polyline points="4,18 22.7,32 41.3,18 60,10.8 78.7,30.7 97.3,26.4 116,4"/><circle cx="116" cy="4" r="3.5"/></svg></article>
+      <article class="card kpi"><h3 class="kpi-label">Thời lượng trung bình</h3><p class="kpi-value">6:55<span class="kpi-unit">phút</span></p><p class="kpi-delta flat">■ Không đổi so với kỳ trước (mẫu)</p>
+        <svg class="spark kpi-spark" viewBox="0 0 120 36" role="img" aria-label="Xu hướng thời lượng trung bình 7 ngày (giây): 394, 99, 452, 465, 359, 492, 403. Thấp nhất 99 vào 05/10."><line x1="4" x2="116" y1="32" y2="32"/><polyline points="4,11 22.7,32 41.3,6.8 60,5.9 78.7,13.5 97.3,4 116,10.3"/><circle cx="116" cy="10.3" r="3.5"/></svg></article>
+      <article class="card kpi"><h3 class="kpi-label">Cuộc gọi nhỡ</h3><p class="kpi-value">8<span class="kpi-unit">cuộc</span></p><p class="kpi-delta down">▼ Giảm 20,0% so với kỳ trước (mẫu)</p>
+        <svg class="spark kpi-spark" viewBox="0 0 120 36" role="img" aria-label="Xu hướng cuộc gọi nhỡ 7 ngày: 0, 3, 1, 1, 2, 1, 0. Cao nhất 3 vào 05/10."><line x1="4" x2="116" y1="32" y2="32"/><polyline points="4,32 22.7,4 41.3,22.7 60,22.7 78.7,13.3 97.3,22.7 116,32"/><circle cx="116" cy="32" r="3.5"/></svg></article>
+    </div>
+  </section>
+
+  <!-- NHÓM 2: XU HƯỚNG VÀ CƠ CẤU -->
+  <section class="dash-section" aria-labelledby="h-g2">
+    <h2 id="h-g2">Xu hướng và cơ cấu</h2>
+    <p class="muted">Lượng cuộc gọi biến động thế nào theo ngày và chia theo trạng thái ra sao.</p>
+    <div class="dash-grid cols-main">
+      <section class="card" aria-labelledby="h-trend">
+        <h3 id="h-trend">Xu hướng cuộc gọi theo ngày</h3>
+        <div class="chart-scroll" tabindex="0" role="region" aria-label="Biểu đồ xu hướng, cuộn ngang nếu cần">
+        <svg class="chart" viewBox="0 0 640 300" role="img" aria-labelledby="trend-t trend-d">
+          <title id="trend-t">Xu hướng cuộc gọi theo ngày, 04 đến 10 tháng 10 năm 2026 (dữ liệu mẫu)</title>
+          <desc id="trend-d">Ba đường: tổng cuộc gọi cao nhất 11 vào ngày 07/10; đã nghe máy cao nhất 9 vào 07/10 và thấp nhất 2 vào 05/10 và 08/10; nhỡ cao nhất 3 vào 05/10, bằng 0 vào 04/10 và 10/10. Số liệu đầy đủ trong bảng bên dưới.</desc>
+          <defs>
+            <circle id="mk-tong" r="5.5" class="mk" fill="var(--c-chart-1)"/>
+            <rect id="mk-nghe" x="-5" y="-5" width="10" height="10" class="mk" fill="var(--c-ok)"/>
+            <polygon id="mk-nho" points="0,-6.5 6,5 -6,5" class="mk" fill="var(--c-miss)"/>
+          </defs>
+          <g class="axis-y">
+            <line class="grid-line" x1="50" x2="630" y1="20" y2="20"/><text x="42" y="24" text-anchor="end">12</text>
+            <line class="grid-line" x1="50" x2="630" y1="77.5" y2="77.5"/><text x="42" y="81.5" text-anchor="end">9</text>
+            <line class="grid-line" x1="50" x2="630" y1="135" y2="135"/><text x="42" y="139" text-anchor="end">6</text>
+            <line class="grid-line" x1="50" x2="630" y1="192.5" y2="192.5"/><text x="42" y="196.5" text-anchor="end">3</text>
+            <line class="axis" x1="50" x2="630" y1="250" y2="250"/><text x="42" y="254" text-anchor="end">0</text>
+            <text x="14" y="135" text-anchor="middle" transform="rotate(-90 14 135)">Số cuộc gọi</text>
+          </g>
+          <g text-anchor="middle">
+            <text x="70" y="272">04/10</text><text x="160" y="272">05/10</text><text x="250" y="272">06/10</text><text x="340" y="272">07/10</text><text x="430" y="272">08/10</text><text x="520" y="272">09/10</text><text x="610" y="272">10/10</text>
+            <text x="340" y="294">Ngày (2026)</text>
+          </g>
+          <polyline class="ln" stroke="var(--c-chart-1)" points="70,96.7 160,96.7 250,96.7 340,39.2 430,115.8 520,58.3 610,96.7"/>
+          <polyline class="ln" stroke="var(--c-ok)" stroke-dasharray="8 4" points="70,154.2 160,211.7 250,154.2 340,77.5 430,211.7 520,173.3 610,96.7"/>
+          <polyline class="ln" stroke="var(--c-miss)" stroke-dasharray="2 4" stroke-linecap="round" points="70,250 160,192.5 250,230.8 340,230.8 430,211.7 520,230.8 610,250"/>
+          <use href="#mk-tong" x="70" y="96.7"/><use href="#mk-tong" x="160" y="96.7"/><use href="#mk-tong" x="250" y="96.7"/><use href="#mk-tong" x="340" y="39.2"/><use href="#mk-tong" x="430" y="115.8"/><use href="#mk-tong" x="520" y="58.3"/><use href="#mk-tong" x="610" y="96.7"/>
+          <use href="#mk-nghe" x="70" y="154.2"/><use href="#mk-nghe" x="160" y="211.7"/><use href="#mk-nghe" x="250" y="154.2"/><use href="#mk-nghe" x="340" y="77.5"/><use href="#mk-nghe" x="430" y="211.7"/><use href="#mk-nghe" x="520" y="173.3"/><use href="#mk-nghe" x="610" y="96.7"/>
+          <use href="#mk-nho" x="70" y="250"/><use href="#mk-nho" x="160" y="192.5"/><use href="#mk-nho" x="250" y="230.8"/><use href="#mk-nho" x="340" y="230.8"/><use href="#mk-nho" x="430" y="211.7"/><use href="#mk-nho" x="520" y="230.8"/><use href="#mk-nho" x="610" y="250"/>
+          <g text-anchor="middle" font-weight="600"><text x="340" y="30">11</text><text x="160" y="87">8</text></g>
+        </svg>
+        </div>
+        <ul class="legend" aria-label="Chú giải biểu đồ xu hướng">
+          <li><svg width="34" height="12" aria-hidden="true"><line x1="0" x2="34" y1="6" y2="6" stroke="var(--c-chart-1)" stroke-width="2.5"/><circle cx="17" cy="6" r="5" fill="var(--c-chart-1)"/></svg>Tổng (nét liền, chấm tròn)</li>
+          <li><svg width="34" height="12" aria-hidden="true"><line x1="0" x2="34" y1="6" y2="6" stroke="var(--c-ok)" stroke-width="2.5" stroke-dasharray="8 4"/><rect x="12" y="1" width="10" height="10" fill="var(--c-ok)"/></svg>Đã nghe máy (nét đứt, ô vuông)</li>
+          <li><svg width="34" height="12" aria-hidden="true"><line x1="0" x2="34" y1="6" y2="6" stroke="var(--c-miss)" stroke-width="2.5" stroke-dasharray="2 4" stroke-linecap="round"/><polygon points="17,0 23,11 11,11" fill="var(--c-miss)"/></svg>Nhỡ (nét chấm, tam giác)</li>
+        </ul>
+        <details class="alt-table">
+          <summary>Xem dữ liệu dạng bảng</summary>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Bảng dữ liệu xu hướng, cuộn ngang được">
+            <table class="data u-minw-360">
+              <caption>Cuộc gọi theo ngày (dữ liệu mẫu)</caption>
+              <thead><tr><th scope="col">Ngày</th><th scope="col" class="num">Tổng</th><th scope="col" class="num">Đã nghe</th><th scope="col" class="num">Nhỡ</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">04/10/2026</th><td class="num">8</td><td class="num">5</td><td class="num">0</td></tr>
+                <tr><th scope="row">05/10/2026</th><td class="num">8</td><td class="num">2</td><td class="num">3</td></tr>
+                <tr><th scope="row">06/10/2026</th><td class="num">8</td><td class="num">5</td><td class="num">1</td></tr>
+                <tr><th scope="row">07/10/2026</th><td class="num">11</td><td class="num">9</td><td class="num">1</td></tr>
+                <tr><th scope="row">08/10/2026</th><td class="num">7</td><td class="num">2</td><td class="num">2</td></tr>
+                <tr><th scope="row">09/10/2026</th><td class="num">10</td><td class="num">4</td><td class="num">1</td></tr>
+                <tr><th scope="row">10/10/2026</th><td class="num">8</td><td class="num">8</td><td class="num">0</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </section>
+
+      <section class="card" aria-labelledby="h-mix">
+        <h3 id="h-mix">Cơ cấu theo trạng thái</h3>
+        <div class="donut-wrap">
+          <svg class="chart" viewBox="0 0 200 200" role="img" aria-labelledby="mix-t mix-d">
+            <title id="mix-t">Cơ cấu 60 cuộc gọi theo trạng thái (dữ liệu mẫu)</title>
+            <desc id="mix-d">Đã nghe máy 35 (58,3%), Nhỡ 8 (13,3%), Không trả lời 8 (13,3%), Máy bận 5 (8,3%), Lỗi kết nối 4 (6,7%).</desc>
+            <g transform="rotate(-90 100 100)">
+              <circle class="ring-seg" cx="100" cy="100" r="70" stroke="var(--c-ok)" stroke-dasharray="254.56 185.26" stroke-dashoffset="0"/>
+              <circle class="ring-seg" cx="100" cy="100" r="70" stroke="var(--c-miss)" stroke-dasharray="56.64 383.18" stroke-dashoffset="-256.56"/>
+              <circle class="ring-seg" cx="100" cy="100" r="70" stroke="var(--c-warn)" stroke-dasharray="56.64 383.18" stroke-dashoffset="-315.2"/>
+              <circle class="ring-seg" cx="100" cy="100" r="70" stroke="var(--c-busy)" stroke-dasharray="34.65 405.17" stroke-dashoffset="-373.84"/>
+              <circle class="ring-seg" cx="100" cy="100" r="70" stroke="var(--c-fail)" stroke-dasharray="27.32 412.5" stroke-dashoffset="-410.49"/>
+            </g>
+            <text class="chart-center" x="100" y="104">60</text>
+            <text class="chart-center-sub" x="100" y="122">cuộc gọi</text>
+          </svg>
+        </div>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Bảng cơ cấu trạng thái, cuộn ngang được">
+          <table class="data u-minw-300">
+            <caption>Chú giải và số liệu (dữ liệu mẫu)</caption>
+            <thead><tr><th scope="col">Trạng thái</th><th scope="col" class="num">Số lượng</th><th scope="col" class="num">Tỷ lệ</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><span class="badge badge-completed"><span aria-hidden="true">✓</span> Đã nghe máy</span></th><td class="num">35</td><td class="num">58,3%</td></tr>
+              <tr><th scope="row"><span class="badge badge-missed"><span aria-hidden="true">✕</span> Nhỡ</span></th><td class="num">8</td><td class="num">13,3%</td></tr>
+              <tr><th scope="row"><span class="badge badge-no_answer"><span aria-hidden="true">…</span> Không trả lời</span></th><td class="num">8</td><td class="num">13,3%</td></tr>
+              <tr><th scope="row"><span class="badge badge-busy"><span aria-hidden="true">⏸</span> Máy bận</span></th><td class="num">5</td><td class="num">8,3%</td></tr>
+              <tr><th scope="row"><span class="badge badge-failed"><span aria-hidden="true">!</span> Lỗi kết nối</span></th><td class="num">4</td><td class="num">6,7%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted dash-note">Các phần trên vòng theo chiều kim đồng hồ từ đỉnh, giống thứ tự trong bảng.</p>
+      </section>
+    </div>
+  </section>
+
+  <!-- NHÓM 3: GIỜ CAO ĐIỂM -->
+  <section class="dash-section" aria-labelledby="h-g3">
+    <h2 id="h-g3">Thời điểm cao điểm</h2>
+    <p class="muted">Giờ nào, thứ nào đông cuộc gọi để xếp ca (FR-VIS). Giờ cao điểm: 14:00 với 15 cuộc; không có cuộc nào lúc 12:00.</p>
+    <section class="card" aria-labelledby="h-heat">
+      <h3 id="h-heat">Số cuộc gọi theo ngày trong tuần × giờ</h3>
+      <div class="chart-scroll" tabindex="0" role="region" aria-label="Heatmap, cuộn ngang nếu cần">
+      <svg class="chart hm" viewBox="0 0 600 290" role="img" aria-labelledby="t-hm d-hm">
+        <title id="t-hm">Số cuộc gọi theo thứ và giờ, 08:00–17:00</title>
+        <desc id="d-hm">Bảng nhiệt 7 thứ × 10 khung giờ, tổng 60 cuộc. Giờ cao điểm 14:00 với 15 cuộc, tối đa 3 cuộc mỗi ô vào T2 và T5 lúc 14h. Không có cuộc nào lúc 12:00. Số liệu từng ô trong bảng dữ liệu bên dưới.</desc>
+        <g class="lbl" text-anchor="middle">
+          <text class="lbl" x="77" y="30" text-anchor="middle">8h</text><text class="lbl" x="131" y="30" text-anchor="middle">9h</text><text class="lbl" x="185" y="30" text-anchor="middle">10h</text><text class="lbl" x="239" y="30" text-anchor="middle">11h</text><text class="lbl" x="293" y="30" text-anchor="middle">12h</text><text class="lbl" x="347" y="30" text-anchor="middle">13h</text><text class="lbl" x="401" y="30" text-anchor="middle">14h</text><text class="lbl" x="455" y="30" text-anchor="middle">15h</text><text class="lbl" x="509" y="30" text-anchor="middle">16h</text><text class="lbl" x="563" y="30" text-anchor="middle">17h</text>
+        </g>
+        <g transform="translate(0,40)"><text class="lbl" x="42" y="20" text-anchor="end">T2</text>
+          <g class="h1"><rect x="51" width="52" height="30" rx="3"/><text x="77" y="20">1</text></g><g class="h1"><rect x="105" width="52" height="30" rx="3"/><text x="131" y="20">1</text></g><g class="h0"><rect x="159" width="52" height="30" rx="3"/><text x="185" y="20">0</text></g><g class="h0"><rect x="213" width="52" height="30" rx="3"/><text x="239" y="20">0</text></g><g class="h0"><rect x="267" width="52" height="30" rx="3"/><text x="293" y="20">0</text></g><g class="h1"><rect x="321" width="52" height="30" rx="3"/><text x="347" y="20">1</text></g><g class="h3"><rect x="375" width="52" height="30" rx="3"/><text x="401" y="20">3</text></g><g class="h2"><rect x="429" width="52" height="30" rx="3"/><text x="455" y="20">2</text></g><g class="h0"><rect x="483" width="52" height="30" rx="3"/><text x="509" y="20">0</text></g><g class="h0"><rect x="537" width="52" height="30" rx="3"/><text x="563" y="20">0</text></g></g>
+        <g transform="translate(0,74)"><text class="lbl" x="42" y="20" text-anchor="end">T3</text>
+          <g class="h1"><rect x="51" width="52" height="30" rx="3"/><text x="77" y="20">1</text></g><g class="h1"><rect x="105" width="52" height="30" rx="3"/><text x="131" y="20">1</text></g><g class="h3"><rect x="159" width="52" height="30" rx="3"/><text x="185" y="20">3</text></g><g class="h0"><rect x="213" width="52" height="30" rx="3"/><text x="239" y="20">0</text></g><g class="h0"><rect x="267" width="52" height="30" rx="3"/><text x="293" y="20">0</text></g><g class="h0"><rect x="321" width="52" height="30" rx="3"/><text x="347" y="20">0</text></g><g class="h2"><rect x="375" width="52" height="30" rx="3"/><text x="401" y="20">2</text></g><g class="h0"><rect x="429" width="52" height="30" rx="3"/><text x="455" y="20">0</text></g><g class="h1"><rect x="483" width="52" height="30" rx="3"/><text x="509" y="20">1</text></g><g class="h0"><rect x="537" width="52" height="30" rx="3"/><text x="563" y="20">0</text></g></g>
+        <g transform="translate(0,108)"><text class="lbl" x="42" y="20" text-anchor="end">T4</text>
+          <g class="h1"><rect x="51" width="52" height="30" rx="3"/><text x="77" y="20">1</text></g><g class="h1"><rect x="105" width="52" height="30" rx="3"/><text x="131" y="20">1</text></g><g class="h1"><rect x="159" width="52" height="30" rx="3"/><text x="185" y="20">1</text></g><g class="h3"><rect x="213" width="52" height="30" rx="3"/><text x="239" y="20">3</text></g><g class="h0"><rect x="267" width="52" height="30" rx="3"/><text x="293" y="20">0</text></g><g class="h1"><rect x="321" width="52" height="30" rx="3"/><text x="347" y="20">1</text></g><g class="h2"><rect x="375" width="52" height="30" rx="3"/><text x="401" y="20">2</text></g><g class="h1"><rect x="429" width="52" height="30" rx="3"/><text x="455" y="20">1</text></g><g class="h1"><rect x="483" width="52" height="30" rx="3"/><text x="509" y="20">1</text></g><g class="h0"><rect x="537" width="52" height="30" rx="3"/><text x="563" y="20">0</text></g></g>
+        <g transform="translate(0,142)"><text class="lbl" x="42" y="20" text-anchor="end">T5</text>
+          <g class="h1"><rect x="51" width="52" height="30" rx="3"/><text x="77" y="20">1</text></g><g class="h0"><rect x="105" width="52" height="30" rx="3"/><text x="131" y="20">0</text></g><g class="h2"><rect x="159" width="52" height="30" rx="3"/><text x="185" y="20">2</text></g><g class="h0"><rect x="213" width="52" height="30" rx="3"/><text x="239" y="20">0</text></g><g class="h0"><rect x="267" width="52" height="30" rx="3"/><text x="293" y="20">0</text></g><g class="h0"><rect x="321" width="52" height="30" rx="3"/><text x="347" y="20">0</text></g><g class="h3"><rect x="375" width="52" height="30" rx="3"/><text x="401" y="20">3</text></g><g class="h1"><rect x="429" width="52" height="30" rx="3"/><text x="455" y="20">1</text></g><g class="h0"><rect x="483" width="52" height="30" rx="3"/><text x="509" y="20">0</text></g><g class="h0"><rect x="537" width="52" height="30" rx="3"/><text x="563" y="20">0</text></g></g>
+        <g transform="translate(0,176)"><text class="lbl" x="42" y="20" text-anchor="end">T6</text>
+          <g class="h0"><rect x="51" width="52" height="30" rx="3"/><text x="77" y="20">0</text></g><g class="h1"><rect x="105" width="52" height="30" rx="3"/><text x="131" y="20">1</text></g><g class="h1"><rect x="159" width="52" height="30" rx="3"/><text x="185" y="20">1</text></g><g class="h2"><rect x="213" width="52" height="30" rx="3"/><text x="239" y="20">2</text></g><g class="h0"><rect x="267" width="52" height="30" rx="3"/><text x="293" y="20">0</text></g><g class="h0"><rect x="321" width="52" height="30" rx="3"/><text x="347" y="20">0</text></g><g class="h2"><rect x="375" width="52" height="30" rx="3"/><text x="401" y="20">2</text></g><g class="h2"><rect x="429" width="52" height="30" rx="3"/><text x="455" y="20">2</text></g><g class="h1"><rect x="483" width="52" height="30" rx="3"/><text x="509" y="20">1</text></g><g class="h1"><rect x="537" width="52" height="30" rx="3"/><text x="563" y="20">1</text></g></g>
+        <g transform="translate(0,210)"><text class="lbl" x="42" y="20" text-anchor="end">T7</text>
+          <g class="h1"><rect x="51" width="52" height="30" rx="3"/><text x="77" y="20">1</text></g><g class="h3"><rect x="105" width="52" height="30" rx="3"/><text x="131" y="20">3</text></g><g class="h1"><rect x="159" width="52" height="30" rx="3"/><text x="185" y="20">1</text></g><g class="h1"><rect x="213" width="52" height="30" rx="3"/><text x="239" y="20">1</text></g><g class="h0"><rect x="267" width="52" height="30" rx="3"/><text x="293" y="20">0</text></g><g class="h0"><rect x="321" width="52" height="30" rx="3"/><text x="347" y="20">0</text></g><g class="h1"><rect x="375" width="52" height="30" rx="3"/><text x="401" y="20">1</text></g><g class="h1"><rect x="429" width="52" height="30" rx="3"/><text x="455" y="20">1</text></g><g class="h0"><rect x="483" width="52" height="30" rx="3"/><text x="509" y="20">0</text></g><g class="h0"><rect x="537" width="52" height="30" rx="3"/><text x="563" y="20">0</text></g></g>
+        <g transform="translate(0,244)"><text class="lbl" x="42" y="20" text-anchor="end">CN</text>
+          <g class="h2"><rect x="51" width="52" height="30" rx="3"/><text x="77" y="20">2</text></g><g class="h0"><rect x="105" width="52" height="30" rx="3"/><text x="131" y="20">0</text></g><g class="h1"><rect x="159" width="52" height="30" rx="3"/><text x="185" y="20">1</text></g><g class="h0"><rect x="213" width="52" height="30" rx="3"/><text x="239" y="20">0</text></g><g class="h0"><rect x="267" width="52" height="30" rx="3"/><text x="293" y="20">0</text></g><g class="h1"><rect x="321" width="52" height="30" rx="3"/><text x="347" y="20">1</text></g><g class="h2"><rect x="375" width="52" height="30" rx="3"/><text x="401" y="20">2</text></g><g class="h0"><rect x="429" width="52" height="30" rx="3"/><text x="455" y="20">0</text></g><g class="h2"><rect x="483" width="52" height="30" rx="3"/><text x="509" y="20">2</text></g><g class="h0"><rect x="537" width="52" height="30" rx="3"/><text x="563" y="20">0</text></g></g>
+      </svg>
+      </div>
+      <ul class="legend" aria-label="Chú giải heatmap (số cuộc gọi trong ô)">
+        <li><span class="hm-sw h0">0</span>0 cuộc</li><li><span class="hm-sw h1">1</span>1 cuộc</li><li><span class="hm-sw h2">2</span>2 cuộc</li><li><span class="hm-sw h3">3</span>3 cuộc trở lên</li>
+      </ul>
+      <details class="alt-table"><summary>Xem dữ liệu dạng bảng</summary>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Bảng dữ liệu heatmap, cuộn ngang được">
+        <table class="data u-minw-560"><caption>Số cuộc gọi theo ngày và giờ, 04–10/10 (dữ liệu mẫu)</caption>
+          <thead><tr><th scope="col">Thứ</th><th scope="col" class="num">8h</th><th scope="col" class="num">9h</th><th scope="col" class="num">10h</th><th scope="col" class="num">11h</th><th scope="col" class="num">12h</th><th scope="col" class="num">13h</th><th scope="col" class="num">14h</th><th scope="col" class="num">15h</th><th scope="col" class="num">16h</th><th scope="col" class="num">17h</th><th scope="col" class="num">Tổng</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">T2 05/10</th><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">1</td><td class="num">3</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">8</td></tr>
+            <tr><th scope="row">T3 06/10</th><td class="num">1</td><td class="num">1</td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">2</td><td class="num">0</td><td class="num">1</td><td class="num">0</td><td class="num">8</td></tr>
+            <tr><th scope="row">T4 07/10</th><td class="num">1</td><td class="num">1</td><td class="num">1</td><td class="num">3</td><td class="num">0</td><td class="num">1</td><td class="num">2</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">11</td></tr>
+            <tr><th scope="row">T5 08/10</th><td class="num">1</td><td class="num">0</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">3</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">7</td></tr>
+            <tr><th scope="row">T6 09/10</th><td class="num">0</td><td class="num">1</td><td class="num">1</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">2</td><td class="num">2</td><td class="num">1</td><td class="num">1</td><td class="num">10</td></tr>
+            <tr><th scope="row">T7 10/10</th><td class="num">1</td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">8</td></tr>
+            <tr><th scope="row">CN 04/10</th><td class="num">2</td><td class="num">0</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">1</td><td class="num">2</td><td class="num">0</td><td class="num">2</td><td class="num">0</td><td class="num">8</td></tr>
+            <tr><th scope="row">Tổng</th><td class="num">7</td><td class="num">7</td><td class="num">9</td><td class="num">6</td><td class="num">0</td><td class="num">3</td><td class="num">15</td><td class="num">7</td><td class="num">5</td><td class="num">1</td><td class="num">60</td></tr>
+          </tbody></table></div>
+      </details>
+    </section>
+  </section>
+
+  <!-- NHÓM 4: CHẤT LƯỢNG DỊCH VỤ -->
+  <section class="dash-section" aria-labelledby="h-g4">
+    <h2 id="h-g4">Chất lượng dịch vụ</h2>
+    <p class="muted">SLA nhấc máy và hành trình của cuộc gọi từ phát sinh đến ghi chú sau gọi.</p>
+    <div class="dash-grid cols-2">
+      <section class="card" aria-labelledby="h-gauge">
+        <h3 id="h-gauge">SLA nhấc máy ≤ 20 s (cuộc đến)</h3>
+        <svg class="chart u-mw-420 u-mx-auto" viewBox="0 0 320 190" role="img" aria-labelledby="t-gauge d-gauge">
+          <title id="t-gauge">SLA nhấc máy trong 20 giây: 72,0%</title>
+          <desc id="d-gauge">Đồng hồ nửa vòng từ 0 đến 100%. Giá trị 72,0% (18 trên 25 cuộc đến). Vạch mục tiêu ở 80%. Chưa đạt mục tiêu, thấp hơn 8,0 điểm phần trăm.</desc>
+          <path class="gauge-track" d="M50 150 A110 110 0 0 1 270 150"/>
+          <path class="gauge-val" d="M50 150 A110 110 0 0 1 230.1 65.2"/>
+          <line class="gauge-tick" x1="236.9" y1="94.2" x2="261.1" y2="76.5"/>
+          <text class="lbl u-t13b" x="268" y="68">Mục tiêu 80%</text>
+          <text class="big" x="160" y="140">72,0%</text>
+          <text class="lbl u-t13" x="160" y="166" text-anchor="middle">18/25 cuộc đến chờ ≤ 20 s</text>
+          <text class="lbl" x="50" y="182" text-anchor="middle">0</text><text class="lbl" x="270" y="182" text-anchor="middle">100</text>
+        </svg>
+        <p class="status-line">▼ Chưa đạt mục tiêu: thấp hơn 8,0 điểm % (mục tiêu mẫu, chờ xác nhận)</p>
+        <ul class="legend" aria-label="Chú giải gauge">
+          <li><svg width="30" height="14" aria-hidden="true"><rect width="30" height="14" class="pb1"/></svg>Giá trị thực tế (cung màu)</li>
+          <li><svg width="30" height="14" aria-hidden="true"><line x1="15" x2="15" y1="0" y2="14" class="gauge-tick"/></svg>Vạch mục tiêu</li>
+        </ul>
+        <details class="alt-table"><summary>Xem dữ liệu dạng bảng</summary>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Bảng dữ liệu SLA, cuộn ngang được">
+          <table class="data"><caption>SLA nhấc máy ≤ 20 giây, cuộc đến 04–10/10 (mẫu)</caption>
+            <thead><tr><th scope="col">Chỉ số</th><th scope="col" class="num">Giá trị</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Tổng cuộc đến</th><td class="num">25</td></tr>
+              <tr><th scope="row">Chờ ≤ 20 giây</th><td class="num">18</td></tr>
+              <tr><th scope="row">SLA</th><td class="num">72,0%</td></tr>
+              <tr><th scope="row">Mục tiêu (mẫu)</th><td class="num">80,0%</td></tr>
+            </tbody></table></div>
+        </details>
+      </section>
+
+      <section class="card" aria-labelledby="h-funnel">
+        <h3 id="h-funnel">Phễu cuộc gọi</h3>
+        <div class="chart-scroll" tabindex="0" role="region" aria-label="Biểu đồ phễu, cuộn ngang nếu cần">
+        <svg class="chart" viewBox="0 0 640 280" role="img" aria-labelledby="t-fun d-fun">
+          <title id="t-fun">Phễu cuộc gọi 5 bước</title>
+          <desc id="d-fun">Phát sinh 60 cuộc (100%); kết nối được 56 (93,3%); nghe máy 35 (58,3%); đàm thoại từ 60 giây 34 (56,7%); có ghi chú sau gọi 12 (20,0%). Bước rơi nhiều nhất là từ kết nối sang nghe máy (mất 21 cuộc).</desc>
+          <rect class="pb1" x="200" y="20" width="340" height="40"/>
+          <rect class="pb1" x="211.3" y="72" width="317.3" height="40"/>
+          <rect class="pb1" x="270.8" y="124" width="198.3" height="40"/>
+          <rect class="pb1" x="273.7" y="176" width="192.7" height="40"/>
+          <rect class="pb1" x="336" y="228" width="68" height="40"/>
+          <g class="lbl" text-anchor="end">
+            <text class="lbl" x="150" y="45" text-anchor="end">Phát sinh</text><text class="lbl" x="150" y="97" text-anchor="end">Kết nối được</text><text class="lbl" x="150" y="149" text-anchor="end">Nghe máy</text><text class="lbl" x="150" y="201" text-anchor="end">Đàm thoại ≥ 60 s</text><text class="lbl" x="150" y="253" text-anchor="end">Có ghi chú</text>
+          </g>
+          <g class="u-t14b">
+            <text x="552" y="45">60 · 100%</text><text x="552" y="97">56 · 93,3%</text><text x="552" y="149">35 · 58,3%</text><text x="552" y="201">34 · 56,7%</text><text x="552" y="253">12 · 20,0%</text>
+          </g>
+        </svg>
+        </div>
+        <p class="muted">Nhãn: số cuộc · % trên tổng 60. Rơi nhiều nhất: kết nối → nghe máy (mất 21 cuộc).</p>
+        <details class="alt-table"><summary>Xem dữ liệu dạng bảng</summary>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Bảng dữ liệu phễu, cuộn ngang được">
+          <table class="data"><caption>Phễu cuộc gọi 04–10/10 (mẫu)</caption>
+            <thead><tr><th scope="col">Bước</th><th scope="col" class="num">Số cuộc</th><th scope="col" class="num">% trên tổng</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Cuộc gọi phát sinh</th><td class="num">60</td><td class="num">100,0%</td></tr>
+              <tr><th scope="row">Kết nối được</th><td class="num">56</td><td class="num">93,3%</td></tr>
+              <tr><th scope="row">Nghe máy</th><td class="num">35</td><td class="num">58,3%</td></tr>
+              <tr><th scope="row">Đàm thoại từ 60 giây</th><td class="num">34</td><td class="num">56,7%</td></tr>
+              <tr><th scope="row">Có ghi chú sau gọi</th><td class="num">12</td><td class="num">20,0%</td></tr>
+            </tbody></table></div>
+        </details>
+      </section>
+    </div>
+  </section>
+
+  <!-- NHÓM 5: NHÂN VIÊN -->
+  <section class="dash-section" aria-labelledby="h-g5">
+    <h2 id="h-g5">Hiệu suất nhân viên</h2>
+    <p class="muted">Nguyễn Thị Lan dẫn đầu với 7 cuộc đã nghe. Trung bình 4,4 cuộc đã nghe/nhân viên (35 cuộc / 8 nhân viên).</p>
+
+    <section class="card" aria-labelledby="h-col">
+      <h3 id="h-col">Số cuộc theo nhân viên</h3>
+      <div class="chart-scroll" tabindex="0" role="region" aria-label="Biểu đồ cột theo nhân viên, cuộn ngang nếu cần">
+      <svg class="chart" viewBox="0 0 640 290" role="img" aria-labelledby="t-col d-col">
+        <title id="t-col">Số cuộc tổng và số cuộc đã nghe máy theo nhân viên</title>
+        <desc id="d-col">Tổng/đã nghe: NV01 13/7, NV02 8/5, NV03 7/5, NV04 4/2, NV05 9/5, NV06 7/4, NV07 7/5, NV08 5/2. Tổng 60 cuộc, 35 cuộc đã nghe.</desc>
+        <line class="grid-line" x1="50" x2="630" y1="20" y2="20"/><text x="42" y="24" text-anchor="end">14</text>
+        <line class="grid-line" x1="50" x2="630" y1="91.4" y2="91.4"/><text x="42" y="95.4" text-anchor="end">9</text>
+        <line class="grid-line" x1="50" x2="630" y1="148.6" y2="148.6"/><text x="42" y="152.6" text-anchor="end">5</text>
+        <line class="axis" x1="50" x2="630" y1="220" y2="220"/><text x="42" y="224" text-anchor="end">0</text>
+        <g class="pb8">
+          <rect x="62.2" y="34.3" width="26" height="185.7"/><rect x="134.7" y="105.7" width="26" height="114.3"/><rect x="207.2" y="120" width="26" height="100"/><rect x="279.7" y="162.9" width="26" height="57.1"/><rect x="352.2" y="91.4" width="26" height="128.6"/><rect x="424.7" y="120" width="26" height="100"/><rect x="497.2" y="120" width="26" height="100"/><rect x="569.7" y="148.6" width="26" height="71.4"/>
+        </g>
+        <g class="pb1">
+          <rect x="92.2" y="120" width="26" height="100"/><rect x="164.7" y="148.6" width="26" height="71.4"/><rect x="237.2" y="148.6" width="26" height="71.4"/><rect x="309.7" y="191.4" width="26" height="28.6"/><rect x="382.2" y="148.6" width="26" height="71.4"/><rect x="454.7" y="162.9" width="26" height="57.1"/><rect x="527.2" y="148.6" width="26" height="71.4"/><rect x="599.7" y="191.4" width="26" height="28.6"/>
+        </g>
+        <g class="val">
+          <text x="75.2" y="30">13</text><text x="105.2" y="116">7</text><text x="147.7" y="101">8</text><text x="177.7" y="144">5</text><text x="220.2" y="116">7</text><text x="250.2" y="144">5</text><text x="292.7" y="159">4</text><text x="322.7" y="187">2</text><text x="365.2" y="87">9</text><text x="395.2" y="144">5</text><text x="437.7" y="116">7</text><text x="467.7" y="159">4</text><text x="510.2" y="116">7</text><text x="540.2" y="144">5</text><text x="582.7" y="144">5</text><text x="612.7" y="187">2</text>
+        </g>
+        <g text-anchor="middle"><text x="90" y="242">NV01</text><text x="162.5" y="242">NV02</text><text x="235" y="242">NV03</text><text x="307.5" y="242">NV04</text><text x="380" y="242">NV05</text><text x="452.5" y="242">NV06</text><text x="525" y="242">NV07</text><text x="597.5" y="242">NV08</text></g>
+        <text x="340" y="272" text-anchor="middle">Nhân viên (mã)</text>
+      </svg>
+      </div>
+      <ul class="legend" aria-label="Chú giải biểu đồ cột">
+        <li><svg width="18" height="14" aria-hidden="true"><rect width="18" height="14" class="pb8"/></svg>Tổng cuộc (cột bên trái)</li>
+        <li><svg width="18" height="14" aria-hidden="true"><rect width="18" height="14" class="pb1"/></svg>Đã nghe máy (cột bên phải)</li>
+      </ul>
+    </section>
+
+    <section class="card u-mt-4" aria-labelledby="h-rank">
+      <h3 id="h-rank">Xếp hạng nhân viên</h3>
+      <p class="muted">Sắp theo số cuộc đã nghe máy, giảm dần (dữ liệu mẫu). Cùng số cuộc thì giữ thứ tự theo mã nhân viên của bộ dữ liệu chung.</p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Bảng xếp hạng nhân viên, cuộn ngang được">
+        <table class="data">
+          <caption class="sr-only">Xếp hạng 8 nhân viên theo số cuộc đã nghe máy</caption>
+          <thead><tr>
+            <th scope="col">Hạng</th><th scope="col">Nhân viên</th><th scope="col" class="num">Tổng cuộc</th><th scope="col" class="num">Đã nghe</th><th scope="col">Tỷ lệ nghe máy</th><th scope="col" class="num">TB thời lượng</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>1</td><th scope="row">NV01 Nguyễn Thị Lan</th><td class="num">13</td><td class="num">7</td><td><div class="rank-meter"><div class="meter" aria-hidden="true"><span style="width:53.8%"></span></div><span class="val">53,8%</span></div></td><td class="num">6:54</td></tr>
+            <tr><td>2</td><th scope="row">NV02 Võ Quốc Bảo</th><td class="num">8</td><td class="num">5</td><td><div class="rank-meter"><div class="meter" aria-hidden="true"><span style="width:62.5%"></span></div><span class="val">62,5%</span></div></td><td class="num">6:01</td></tr>
+            <tr><td>3</td><th scope="row">NV03 Đặng Ngọc Mai</th><td class="num">7</td><td class="num">5</td><td><div class="rank-meter"><div class="meter" aria-hidden="true"><span style="width:71.4%"></span></div><span class="val">71,4%</span></div></td><td class="num">7:22</td></tr>
+            <tr><td>4</td><th scope="row">NV05 Bùi Thanh Tâm</th><td class="num">9</td><td class="num">5</td><td><div class="rank-meter"><div class="meter" aria-hidden="true"><span style="width:55.6%"></span></div><span class="val">55,6%</span></div></td><td class="num">10:00</td></tr>
+            <tr><td>5</td><th scope="row">NV07 Đỗ Phương Linh</th><td class="num">7</td><td class="num">5</td><td><div class="rank-meter"><div class="meter" aria-hidden="true"><span style="width:71.4%"></span></div><span class="val">71,4%</span></div></td><td class="num">6:59</td></tr>
+            <tr><td>6</td><th scope="row">NV06 Ngô Gia Huy</th><td class="num">7</td><td class="num">4</td><td><div class="rank-meter"><div class="meter" aria-hidden="true"><span style="width:57.1%"></span></div><span class="val">57,1%</span></div></td><td class="num">7:19</td></tr>
+            <tr><td>7</td><th scope="row">NV04 Hoàng Văn Khoa</th><td class="num">4</td><td class="num">2</td><td><div class="rank-meter"><div class="meter" aria-hidden="true"><span style="width:50%"></span></div><span class="val">50,0%</span></div></td><td class="num">1:59</td></tr>
+            <tr><td>8</td><th scope="row">NV08 Vũ Anh Tuấn</th><td class="num">5</td><td class="num">2</td><td><div class="rank-meter"><div class="meter" aria-hidden="true"><span style="width:40%"></span></div><span class="val">40,0%</span></div></td><td class="num">4:18</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+</main>
+<footer class="site-footer">Mockup tĩnh, dữ liệu mẫu bịa — không phải sản phẩm thật.</footer>
+<script src="assets/analytics.js" defer></script>
+</body>
+</html>
